@@ -1,0 +1,19 @@
+/* Ensures the footer sticks to the bottom of the page */
+.page-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.content-wrap {
+    flex: 1; /* Expands to take up available space, pushing the footer down */
+    padding: 20px; /* Optional padding for your main content */
+}
+
+.footer {
+    background-color: #1d39c4;
+    color: #fff;
+    text-align: center;
+    padding: 20px 40px;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+}

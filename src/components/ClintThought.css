@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.responsiveCardsImg {
+    /*background: #f2f5f9;*/
+    color: #111;
+}
+.container {
+    max-width: 1300px;
+    width: 100%;
+    margin: auto;
+    padding: 0 20px;
+}
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+section h1 {
+    justify-self: center;
+    margin-bottom: 40px;
+    color: #111;
+    font-size: 50px;
+    line-height: 60px;
+    text-align: center;
+}
+.cardsImg {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Align items to the start */
+    width: 100%;
+    gap: 20px; /* Adds consistent spacing between cards */
+}
+.card .customCard {
+    flex: 0 0 calc(33.33% - 20px); /* Takes up one-third of the container width */
+    max-width: calc(33.33% - 20px);
+    width: 100%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    transition: 0.3s;
+}
+.customCard:hover {
+    border-color: transparent;
+}
+
+.card h3 {
+    font-size: 24px;
+    color: #272729;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 969px) {
+    section{
+        padding: 30px 0px;
+    }
+    section h1 {
+        font-size: 40px;
+    }
+    .card {
+        flex: 0 0 calc(50% - 10px);
+        max-width: calc(50% - 10px);
+    }
+}
+@media (max-width: 767px) {
+
+    .card {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
