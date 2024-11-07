@@ -19,8 +19,8 @@ function Header(args) {
 
     return (
         <div>
-            <Navbar className="navbar" {...args} expand="md"> {/* Add the expand property */}
-                <NavbarBrand className="navBrand">Md. Sajjad Hossain</NavbarBrand>
+            <Navbar className="navbar" {...args} expand="md" fixed="top"> {/* Add the expand property */}
+                <NavbarBrand className="navBrand">Logo</NavbarBrand>
                 <NavbarToggler onClick={toggle}/>
                 <Collapse isOpen={isOpen} navbar>
                     <Nav dark className="ms-auto" navbar>
