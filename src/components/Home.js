@@ -10,6 +10,7 @@ import advertise2 from "./images/img3.jpg"
 import advertise3 from "./images/img4.jpg"
 import advertise4 from "./images/img5.jpg"
 import WhyChooseUs from "./WhyChooseUs";
+import Contact from "./Contact";
 
 export default function Home() {
 
@@ -28,6 +29,7 @@ export default function Home() {
             <ServiceCards/>
             <WhyChooseUs/>
             <ClintThought/>
+            <Contact/>
         </div>
     )
 }

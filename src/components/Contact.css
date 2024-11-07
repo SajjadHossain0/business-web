@@ -1,0 +1,135 @@
+/* Main Contact Section */
+.contactSection {
+    position: relative;
+    padding: 60px 20px;
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWc2FM4HTZR0PxfxuTyCMlbB9NWyW_idX4Sw&s') center/cover no-repeat;
+}
+
+.contactOverlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 40px;
+}
+
+.contactContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.contactContent {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    width: 100%;
+}
+
+.contactInfo, .contactForm {
+    flex: 1;
+    margin: 20px;
+}
+
+.contactTitle, .contactFormTitle {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.contactDescription {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #ccc;
+}
+
+/* Info Card Styling */
+.contactInfoCard {
+    display: flex;
+    align-items: center;
+    background: rgba(55, 55, 55, 0.1);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.contactInfoCard:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.contactInfoIcon {
+    background-color: #039e9e;
+    color: #fff;
+    font-size: 24px;
+    padding: 15px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.contactInfoDetails {
+    display: flex;
+    flex-direction: column;
+}
+
+.contactInfoTitle {
+    font-size: 18px;
+    color: #fff;
+    margin: 0 0 5px;
+}
+
+.contactInfoText {
+    font-size: 14px;
+    color: #ccc;
+}
+
+/* Form Styling */
+.contactFormFields {
+    display: flex;
+    flex-direction: column;
+}
+
+.contactFormInput, .contactFormTextarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+}
+
+.contactFormInput:focus, .contactFormTextarea:focus {
+    outline: 2px solid #039e9e;
+}
+
+.contactFormButton {
+    background-color: #0ca5a5;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.contactFormButton:hover {
+    background-color: #039e9e;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .contactContent {
+        flex-direction: row;
+    }
+    .contactInfo, .contactForm {
+        flex: 0 0 48%;
+    }
+}
+
+@media (max-width: 767px) {
+    .contactInfo, .contactForm {
+        margin: 10px 0;
+    }
+}
