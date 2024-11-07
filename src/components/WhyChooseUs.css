@@ -1,0 +1,59 @@
+.why-choose-me-section {
+    background-color: #f9f9f9;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.why-choose-me-header h1 {
+    color: #34495e;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.why-choose-me-header p {
+    color: #555;
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.why-choose-me-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.why-choose-me-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px 20px;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.why-choose-me-card:hover {
+    transform: translateY(-10px);
+}
+
+.why-choose-me-icon {
+    font-size: 40px;
+    color: #0ca5a5;
+    margin-bottom: 15px;
+}
+
+.why-choose-me-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.why-choose-me-description {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}

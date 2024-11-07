@@ -37,7 +37,7 @@ export default function ClintThought() {
             <div className="responsiveCardsImg">
                 <section>
                     <div className="container">
-                        <h1>What our clint's thought</h1>
+                        <h1 style={{color:"#34495e", fontSize:36,fontWeight:700}}>What our clint's thought</h1>
                         <div className="cardsImg">
                             {cards.map((card, i) => (
                                 <div key={i} className="card customCard">

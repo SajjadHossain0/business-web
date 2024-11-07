@@ -35,7 +35,7 @@ export default function ServiceCards() {
         <div className="responsiveCards">
             <section>
                 <div className="container">
-                    <h1>Our services</h1>
+                    <h1 style={{color:"#34495e", fontSize:36,fontWeight:700}}>Our services</h1>
                     <div className="cards">
                         {cards.map((card, i) => (
                             <div key={i} className="card">

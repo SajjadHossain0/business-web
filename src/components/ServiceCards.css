@@ -23,7 +23,7 @@ section {
 section h1 {
     justify-self: center;
     margin-bottom: 40px;
-    color: #111;
+    color: #34495e;
     font-size: 50px;
     line-height: 60px;
     text-align: center;
@@ -48,12 +48,12 @@ section h1 {
 }
 
 .card:hover {
-    border-color: #1d39c4;
+    border-color: #0ca5a5;
 }
 
 .card .cardTitle {
     font-size: 60px;
-    color: #1d39c4;
+    color: #0ca5a5;
     margin-bottom: 20px;
 }
 .card .btn {
@@ -62,7 +62,7 @@ section h1 {
     align-items: center;
     max-width: 120px;
     width: 100%;
-    background: #1d39c4;
+    background: #0ca5a5;
     border: none;
     outline: none;
     border-radius: 10px;
@@ -71,10 +71,10 @@ section h1 {
     color: #fff;
     cursor: pointer;
     transition: 0.3s;
-    border: 1px solid #1d39c4;
+    border: 1px solid #0ca5a5;
 }
 .card .btn:hover {
-    color: #1d39c4;
+    color: #0ca5a5;
     background: transparent;
 }
 

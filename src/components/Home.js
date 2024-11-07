@@ -9,6 +9,7 @@ import advertise1 from "./images/img2.jpg"
 import advertise2 from "./images/img3.jpg"
 import advertise3 from "./images/img4.jpg"
 import advertise4 from "./images/img5.jpg"
+import WhyChooseUs from "./WhyChooseUs";
 
 export default function Home() {
 
@@ -25,6 +26,7 @@ export default function Home() {
             <Advertisement images={adImages} interval={3000}/>
             <About/>
             <ServiceCards/>
+            <WhyChooseUs/>
             <ClintThought/>
         </div>
     )
