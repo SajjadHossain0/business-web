@@ -1,27 +1,31 @@
 import React, {useState} from 'react';
 import './ServiceCards.css'
+import {FaGear} from "react-icons/fa6";
+import {GiGearHammer} from "react-icons/gi";
+import {GrTools} from "react-icons/gr";
+import {FaTools} from "react-icons/fa";
 
 export default function ServiceCards() {
 
     const [cards] = useState([
         {
-            title: "Card-1",
+            title: <GiGearHammer />,
             text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. In
       perspiciatis soluta nam vero sapiente eius fugit distinctio
       pariatur? A, molestias.`,
         },
         {
-            title: "Card-2",
+            title: <FaGear />,
             text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. In
       perspiciatis soluta`,
         },
         {
-            title: "Card-3",
+            title: <FaTools />,
             text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. In
       perspiciatis soluta dolor sit amet consectetur adipisicing elit.`,
         },
         {
-            title: "Card-4",
+            title: <GrTools />,
             text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. In
       perspiciatis soluta`,
         }
