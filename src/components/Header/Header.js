@@ -25,28 +25,28 @@ function Header(args) {
                 <Collapse isOpen={isOpen} navbar>
                     <Nav dark className="ms-auto" navbar>
                         <NavItem className="navItem">
-                            <NavLink className="navLink" href="#">Home</NavLink>
+                            <NavLink className="navLink" href="/">Home</NavLink>
                         </NavItem>
                         <NavItem className="navItem">
-                            <NavLink className="navLink" href="#">About Company</NavLink>
+                            <NavLink className="navLink" href="/about-company">About Company</NavLink>
                         </NavItem>
                         <NavItem className="navItem">
-                            <NavLink className="navLink" href="#">Services</NavLink>
+                            <NavLink className="navLink" href="/services">Services</NavLink>
                         </NavItem>
                         <NavItem className="navItem">
-                            <NavLink className="navLink" href="#">Portfolio</NavLink>
+                            <NavLink className="navLink" href="/portfolio">Portfolio</NavLink>
                         </NavItem>
                         <NavItem className="navItem">
-                            <NavLink className="navLink" href="#">Gallery</NavLink>
+                            <NavLink className="navLink" href="/gallery">Gallery</NavLink>
                         </NavItem>
                         <NavItem className="navItem">
-                            <NavLink className="navLink" href="#">Major Clint's</NavLink>
+                            <NavLink className="navLink" href="/major-clints">Major Clint's</NavLink>
                         </NavItem>
                         <NavItem className="navItem">
-                            <NavLink className="navLink" href="#">Blog's</NavLink>
+                            <NavLink className="navLink" href="/blogs">Blog's</NavLink>
                         </NavItem>
                         <NavItem className="navItem">
-                            <NavLink className="navLink" href="#">Contact</NavLink>
+                            <NavLink className="navLink" href="/contact">Contact</NavLink>
                         </NavItem>
                     </Nav>
                 </Collapse>
