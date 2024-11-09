@@ -11,6 +11,7 @@ import advertise3 from "../images/img4.jpg"
 import advertise4 from "../images/img5.jpg"
 import WhyChooseUs from "./WhyChooseUs";
 import Contact from "./Contact";
+import ImageGrid from "./ImageGrid";
 
 export default function Home() {
 
@@ -28,6 +29,7 @@ export default function Home() {
             <About/>
             <ServiceCards/>
             <WhyChooseUs/>
+            <ImageGrid/>
             <ClintThought/>
             <Contact/>
         </div>
@@ -50,11 +52,11 @@ Services Section
     Service Categories with Icons or Images: List main services (e.g., Civil, Architectural, Electrical) with a brief description for each. Include visuals or icons representing each service to enhance clarity.
     Project Specialties: Showcase specific project types like apartment buildings, commercial complexes, and industrial facilities with quick descriptions.
 
+Why Choose Us Section
+
 Portfolio or Case Studies
     Highlighted Projects: Showcase a few projects with images, descriptions, and key achievements. A “View All Projects” button could lead to a portfolio page.
     Success Metrics: Display relevant project stats or client satisfaction rates to build trust.
-
-Why Choose Us Section
 
 Testimonials or Client Reviews
 
