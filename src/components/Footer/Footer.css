@@ -17,3 +17,17 @@
     box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
     font-size: 14px;
 }
+
+.social-icons .footer-icon {
+    font-size: 24px;
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.social-icons .footer-icon:hover {
+    color: #000000; /* LinkedIn, GitHub, Instagram, Facebook icons change color on hover */
+}
+
+.footer-icon {
+    text-decoration: none;
+}
