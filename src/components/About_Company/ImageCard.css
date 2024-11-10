@@ -1,0 +1,21 @@
+.image-card {
+    text-align: left;
+}
+
+.image-card img {
+    border-radius: 10px;
+    height: 80%;
+    width: 80%;
+}
+
+.image-card h2 {
+    margin-top: 15px;
+    margin-left: 10px;
+
+}
+
+.image-card p {
+    margin-top: 15px;
+    margin-left: 10px;
+
+}

@@ -14,16 +14,15 @@ export default function OurVission() {
                 <div className="vission-text">
                     <h1>Our Vission</h1>
                     <p>
-                        Our vission is to deliver high-quality solutions that meet the unique needs of each client.
-                        We strive for excellence in every project, ensuring that we adhere to international standards
-                        while providing innovative, sustainable, and efficient services in the construction and
-                        engineering
-                        industry.
+                        Our vision is to be a leading provider of innovative and sustainable solutions in the
+                        construction
+                        and engineering sectors. We aim to be recognized for our commitment to quality, sustainability,
+                        and client satisfaction.
                     </p>
                     <p>
-                        We are committed to integrity, professionalism, and customer satisfaction, aiming to build
-                        lasting
-                        relationships through consistent delivery of exceptional results.
+                        We envision a future where our projects shape the world, creating lasting value through
+                        cutting-edge technology
+                        and unparalleled expertise.
                     </p>
                 </div>
             </div>
