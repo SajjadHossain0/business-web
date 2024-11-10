@@ -1,0 +1,71 @@
+/*
+Flexbox Layout:
+
+I used display: flex on the .our-mission-container to align the image and text side by side. justify-content: space-between ensures that the space between the text and image is maximized.
+The flex: 1 ensures both .mission-text and .mission-image share equal space, and max-width: 50% ensures they are constrained to half the container on larger screens.
+Responsive Design:
+
+The media query for screens smaller than 768px (@media (max-width: 768px)) changes the layout to a column, where the image will appear on top and the text will follow it. It also ensures both elements take the full width of the screen with max-width: 100%.
+*/
+.our-vission-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align items to the left */
+    flex-wrap: wrap;
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.vission-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.vission-text {
+    flex: 1;
+    max-width: 50%; /* Ensure the text doesn't exceed half the container width */
+    text-align: center; /* Align the text to the left */
+    padding-left: 20px;
+}
+
+.vission-text h1 {
+    color: #34495e;
+    font-weight: 700;
+    font-size: 36px;
+}
+
+.vission-text p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.vission-image {
+    flex: 1;
+    max-width: 50%; /* Ensure the image doesn't exceed half the container width */
+}
+
+.vission-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .vission-content {
+        flex-direction: column; /* Stack the content on small screens */
+        align-items: center; /* Center align the content */
+    }
+
+    .vission-text {
+        max-width: 100%; /* Allow text to take full width */
+        padding-right: 0;
+    }
+
+    .vission-image {
+        max-width: 100%; /* Allow the image to take full width */
+    }
+}

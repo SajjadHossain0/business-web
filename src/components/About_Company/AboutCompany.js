@@ -1,7 +1,19 @@
 import React from "react";
+import OurMission from "./OurMission";
+import OurVission from "./OurVission";
 export default function AboutCompany() {
     return(
-        <div></div>
+        <div>
+        {/*    our mission - */}
+            <OurMission/>
+            <OurVission/>
+        {/*    <OurTeam/>
+        image, name, some text*/}
+        {/*    <BoardOfDirectors/>
+        image, name, some text*/}
+
+
+        </div>
     )
 }
 /*
