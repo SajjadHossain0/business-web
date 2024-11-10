@@ -1,18 +1,52 @@
-import React from "react";
+import React, {useState} from "react";
 import ImageCard from "./ImageCard";
+import './BoardOfDirectors.css'
 
 
 export default function BoardOfDirectors() {
+
+    const [images] = useState([
+        {
+            imageUrl: "https://via.placeholder.com/300x400",
+            title: "Name",
+            text: "Some text about them."
+        },
+        {
+            imageUrl: "https://via.placeholder.com/300x400",
+            title: "Name",
+            text: "Some text about them."
+        },
+        {
+            imageUrl: "https://via.placeholder.com/300x400",
+            title: "Name",
+            text: "Some text about them."
+        },
+        {
+            imageUrl: "https://via.placeholder.com/300x400",
+            title: "Name",
+            text: "Some text about them."
+        },
+        {
+            imageUrl: "https://via.placeholder.com/300x400",
+            title: "Name",
+            text: "Some text about them."
+        },
+    ]);
+
     return (
-        <section>
-
-            <h1 style={{color: "#34495e", fontSize: 36, fontWeight: 700}}>Board Of Directors</h1>
-
-            <ImageCard
-                imageUrl="https://via.placeholder.com/300x400"
-                title="Name"
-                text="Some text about them."
-            />
-        </section>
+        <div className="bod-image-grid-container">
+            <h1 style={{color: "#34495e", fontSize: 36, fontWeight: 700}} className="bod-image-grid-title">Board Of Directors</h1>
+            <div className="bod-image-grid">
+                {images.slice(0, 4).map((image, index) => (
+                    <div key={index} className="bod-image-grid-item">
+                        <ImageCard
+                            imageUrl={image.imageUrl}
+                            title={image.title}
+                            text={image.text}
+                        />
+                    </div>
+                ))}
+            </div>
+        </div>
     )
 }

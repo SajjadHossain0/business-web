@@ -1,0 +1,30 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.bod-image-grid-container {
+    max-width: 1200px;
+    width: 90%;
+    margin: auto;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.bod-image-grid-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.bod-image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.bod-image-grid-item {
+    overflow: hidden;
+    border-radius: 5px;
+    position: relative;
+}

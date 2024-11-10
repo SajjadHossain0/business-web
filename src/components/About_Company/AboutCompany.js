@@ -3,6 +3,7 @@ import OurMission from "./OurMission";
 import OurVission from "./OurVission";
 import OurTeam from "./OurTeam";
 import BoardOfDirectors from "./BoardOfDirectors";
+import OurStory from "./OurStory";
 
 export default function AboutCompany() {
     return (
@@ -10,6 +11,7 @@ export default function AboutCompany() {
             {/*    our mission - */}
             <OurMission/>
             <OurVission/>
+            <OurStory/>
             <OurTeam/>
             <BoardOfDirectors/>
 

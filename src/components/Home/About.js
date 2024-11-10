@@ -27,7 +27,7 @@ export default function About() {
                 <div className="about-us-right">
                     <img
                         className="about-us-image"
-                        src="https://png.pngtree.com/png-clipart/20190925/original/pngtree-under-construction-building-work-process-with-construction-machines-vector-illustration-png-image_4888925.jpg"
+                        src="https://via.placeholder.com/600x400"
                         alt="Construction"
                     />
                 </div>
