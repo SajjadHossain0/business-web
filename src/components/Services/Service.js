@@ -1,8 +1,14 @@
 import React from "react";
+import ServiceCards from "../Home/ServiceCards";
+import ClintThought from "../Home/ClintThought";
+import ImageGrid from "../Home/ImageGrid";
 export default function Service() {
     return(
         <div>
+            <ServiceCards/>
 
+            <ImageGrid/>
+            <ClintThought/>
         </div>
     )
 }

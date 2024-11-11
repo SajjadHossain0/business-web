@@ -9,28 +9,34 @@ export default function BoardOfDirectors() {
         {
             imageUrl: "https://via.placeholder.com/300x400",
             title: "Name",
+            position: "position",
             text: "Some text about them."
         },
         {
             imageUrl: "https://via.placeholder.com/300x400",
             title: "Name",
+            position: "position",
             text: "Some text about them."
         },
         {
             imageUrl: "https://via.placeholder.com/300x400",
             title: "Name",
+            position: "position",
             text: "Some text about them."
         },
         {
             imageUrl: "https://via.placeholder.com/300x400",
             title: "Name",
+            position: "position",
             text: "Some text about them."
         },
         {
             imageUrl: "https://via.placeholder.com/300x400",
             title: "Name",
+            position: "position",
             text: "Some text about them."
         },
+
     ]);
 
     return (
@@ -42,6 +48,7 @@ export default function BoardOfDirectors() {
                         <ImageCard
                             imageUrl={image.imageUrl}
                             title={image.title}
+                            position={image.position}
                             text={image.text}
                         />
                     </div>
