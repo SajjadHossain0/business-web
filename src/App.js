@@ -11,11 +11,14 @@ import MajorClints from "./components/Major_Clints/MajorClints";
 import Blogs from "./components/Blogs/Blogs";
 import Contacts from "./components/Contact/Contacts";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {useState} from "react";
 
 function App() {
+
     return (
         <div className="App">
             <Header/>
+
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Home/>}/>
@@ -39,9 +42,10 @@ function App() {
                     <Route path="/blogs" element={<Blogs/>}/>
                 </Routes>
                 <Routes>
-                    <Route path="/contact" element={<Contacts/>}/>
+                    <Route path="/contacts" element={<Contacts/>}/>
                 </Routes>
             </BrowserRouter>
+
             <Footer/>
         </div>
     );

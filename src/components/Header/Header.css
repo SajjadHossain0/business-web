@@ -7,6 +7,9 @@
     font-size: 30px;
     margin-left: 20px;
 }
+.navBrand:hover{
+    color: white;
+}
 .navLink{
     color: white;
     font-size: 16px;
