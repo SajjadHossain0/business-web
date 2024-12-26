@@ -44,7 +44,6 @@ export default function ServiceCards() {
                                 <div align="center">
                                     <button className="btn">Explore</button>
                                 </div>
-
                             </div>
                         ))}
                     </div>
