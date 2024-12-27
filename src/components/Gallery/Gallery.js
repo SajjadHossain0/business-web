@@ -5,69 +5,90 @@ export default function Gallery() {
 
     const [images] = useState([
         {
-            imageUrl: "https://via.placeholder.com/300x400",
+            imageUrl: "https://via.placeholder.com/500x500",
             title: "Name",
         },
         {
-            imageUrl: "https://via.placeholder.com/300x400",
+            imageUrl: "https://via.placeholder.com/500x500",
             title: "Name",
         },
         {
-            imageUrl: "https://via.placeholder.com/300x400",
+            imageUrl: "https://via.placeholder.com/500x500",
             title: "Name",
         },
         {
-            imageUrl: "https://via.placeholder.com/300x400",
+            imageUrl: "https://via.placeholder.com/500x500",
             title: "Name",
         },
         {
-            imageUrl: "https://via.placeholder.com/300x400",
+            imageUrl: "https://via.placeholder.com/500x500",
             title: "Name",
         },
         {
-            imageUrl: "https://via.placeholder.com/300x400",
+            imageUrl: "https://via.placeholder.com/500x500",
             title: "Name",
         },
         {
-            imageUrl: "https://via.placeholder.com/300x400",
+            imageUrl: "https://via.placeholder.com/500x500",
             title: "Name",
         },
         {
-            imageUrl: "https://via.placeholder.com/300x400",
+            imageUrl: "https://via.placeholder.com/500x500",
             title: "Name",
         },
         {
-            imageUrl: "https://via.placeholder.com/300x400",
+            imageUrl: "https://via.placeholder.com/500x500",
             title: "Name",
         },
         {
-            imageUrl: "https://via.placeholder.com/300x400",
+            imageUrl: "https://via.placeholder.com/500x500",
             title: "Name",
         },
         {
-            imageUrl: "https://via.placeholder.com/300x400",
+            imageUrl: "https://via.placeholder.com/500x500",
             title: "Name",
         },
         {
-            imageUrl: "https://via.placeholder.com/300x400",
+            imageUrl: "https://via.placeholder.com/500x500",
             title: "Name",
         },
         {
-            imageUrl: "https://via.placeholder.com/300x400",
+            imageUrl: "https://via.placeholder.com/500x500",
             title: "Name",
         },
         {
-            imageUrl: "https://via.placeholder.com/300x400",
+            imageUrl: "https://via.placeholder.com/500x500",
             title: "Name",
         },
         {
-            imageUrl: "https://via.placeholder.com/300x400",
+            imageUrl: "https://via.placeholder.com/500x500",
             title: "Name",
         },
         {
-            imageUrl: "https://via.placeholder.com/300x400",
+            imageUrl: "https://via.placeholder.com/500x500",
             title: "Name",
         },
+        {
+            imageUrl: "https://via.placeholder.com/500x500",
+            title: "Name",
+        },
+        {
+            imageUrl: "https://via.placeholder.com/500x500",
+            title: "Name",
+        },
+        {
+            imageUrl: "https://via.placeholder.com/500x500",
+            title: "Name",
+        },
+        {
+            imageUrl: "https://via.placeholder.com/500x500",
+            title: "Name",
+        },
+        {
+            imageUrl: "https://via.placeholder.com/500x500",
+            title: "Name",
+        },
+
     ]);
 
     return (

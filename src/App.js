@@ -29,9 +29,9 @@ function App() {
                 <Routes>
                     <Route path="/services" element={<Service/>}/>
                 </Routes>
-                <Routes>
+                {/*<Routes>
                     <Route path="/portfolio" element={<Portfolio/>}/>
-                </Routes>
+                </Routes>*/}
                 <Routes>
                     <Route path="/gallery" element={<Gallery/>}/>
                 </Routes>

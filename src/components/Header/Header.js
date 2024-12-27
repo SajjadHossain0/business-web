@@ -33,9 +33,9 @@ function Header(args) {
                         <NavItem className="navItem">
                             <NavLink className="navLink" href="/services">Services</NavLink>
                         </NavItem>
-                        <NavItem className="navItem">
+                        {/*<NavItem className="navItem">
                             <NavLink className="navLink" href="/portfolio">Portfolio</NavLink>
-                        </NavItem>
+                        </NavItem>*/}
                         <NavItem className="navItem">
                             <NavLink className="navLink" href="/gallery">Gallery</NavLink>
                         </NavItem>
