@@ -8,14 +8,10 @@ export default function OurMission() {
                 <div className="mission-text">
                     <h1>Our Mission</h1>
                     <p>
-                        Our mission is to deliver high-quality solutions that meet the unique needs of each client.
-                        We strive for excellence in every project, ensuring that we adhere to international standards
-                        while providing innovative, sustainable, and efficient services in the construction and engineering
-                        industry.
+                        Our mission is to provide top-tier solutions tailored to the distinct requirements of each of our clients. We aim for excellence in every phase of our projects, ensuring adherence to global standards while offering innovative, sustainable, and efficient services in the fields of consulting, engineering, and construction.
                     </p>
                     <p>
-                        We are committed to integrity, professionalism, and customer satisfaction, aiming to build lasting
-                        relationships through consistent delivery of exceptional results.
+                        We are dedicated to upholding values of integrity, professionalism, and customer satisfaction. Our goal is to foster long-term relationships by consistently delivering outstanding results that make a positive impact on every project we undertake.
                     </p>
                 </div>
 

@@ -7,35 +7,34 @@ export default function WhyChooseUs() {
         {
             icon: <FaLaptopCode />,
             title: "Technical Expertise",
-            description: "Over 10 years of experience in web development and modern frameworks."
+            description: "Our team has extensive experience in modern technologies and frameworks, delivering reliable solutions for businesses.",
         },
         {
             icon: <FaLightbulb />,
-            title: "Innovative Solutions",
-            description: "Creative problem-solving and unique solutions tailored to client needs."
+            title: "Innovative Strategies",
+            description: "We believe in thinking outside the box to provide creative and tailored solutions that meet unique client challenges.",
         },
         {
             icon: <FaUsers />,
-            title: "Client-Focused",
-            description: "Your success is my priority, and I take time to understand your goals."
+            title: "Client-Centered Approach",
+            description: "Your goals are our priority. We collaborate closely to ensure all solutions align with your vision and requirements.",
         },
         {
             icon: <FaHeadset />,
-            title: "24/7 Support",
-            description: "Available to assist whenever you need, with quick response times."
+            title: "Dedicated Support",
+            description: "We offer round-the-clock support, ensuring any issues are resolved promptly to keep your operations running smoothly.",
         },
         {
             icon: <FaClock />,
-            title: "Timely Delivery",
-            description: "Projects are delivered on time without compromising on quality."
+            title: "On-Time Delivery",
+            description: "We value your time. Our team is committed to delivering projects within agreed deadlines without compromising quality.",
         },
         {
             icon: <FaDollarSign />,
-            title: "Affordable Rates",
-            description: "Professional services at competitive rates with transparency."
-        }
+            title: "Cost-Effective Solutions",
+            description: "We provide high-quality services at competitive rates, ensuring excellent value for your investment.",
+        },
     ];
-
     return (
         <div className="why-choose-me-section">
             <div className="why-choose-me-header">

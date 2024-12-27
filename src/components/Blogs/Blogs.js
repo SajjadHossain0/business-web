@@ -7,64 +7,65 @@ export default function Blogs() {
         {
             id: 1,
             image: "https://via.placeholder.com/300", // Replace with your blog images
-            title: "10 Tips for Building a Secure E-commerce Website",
+            title: "5 Key Strategies for Successful Business Development",
             excerpt:
-                "Learn how to protect your e-commerce store from common security vulnerabilities.",
+                "Explore five crucial strategies that businesses should adopt for sustainable growth and long-term success in today’s competitive market.",
             date: "Dec 27, 2024",
-            author: "Md. Sajjad Hossain",
-            category: "E-commerce",
+            author: "Michael Anderson",
+            category: "Business Development",
         },
         {
             id: 2,
             image: "https://via.placeholder.com/300",
-            title: "Top React Features Every Developer Should Know",
+            title: "The Future of Sustainable Construction: Trends to Watch",
             excerpt:
-                "Explore the latest and greatest features React offers to streamline your development process.",
+                "As the construction industry evolves, sustainability becomes a key factor. Learn about the emerging trends that are shaping the future of green buildings.",
             date: "Dec 20, 2024",
-            author: "Md. Sajjad Hossain",
-            category: "Web Development",
+            author: "Sophia Roberts",
+            category: "Construction & Engineering",
         },
         {
             id: 3,
             image: "https://via.placeholder.com/300",
-            title: "Case Study: Scaling an E-commerce Business",
+            title: "How Technology is Transforming the Construction Industry",
             excerpt:
-                "A deep dive into how we helped scale a client's e-commerce business to 5x growth.",
+                "Technology is revolutionizing the way we approach construction projects. Discover the tools and innovations that are streamlining processes and increasing efficiency.",
             date: "Dec 15, 2024",
-            author: "Md. Sajjad Hossain",
-            category: "Case Study",
+            author: "James Carter",
+            category: "Innovation in Business",
         },
         {
             id: 4,
             image: "https://via.placeholder.com/300", // Replace with your blog images
-            title: "10 Tips for Building a Secure E-commerce Website",
+            title: "Building Client Relationships in Business Development",
             excerpt:
-                "Learn how to protect your e-commerce store from common security vulnerabilities.",
-            date: "Dec 27, 2024",
-            author: "Md. Sajjad Hossain",
-            category: "E-commerce",
+                "Building strong client relationships is at the core of business development. Learn how trust, communication, and personalized service can create lasting partnerships.",
+            date: "Dec 10, 2024",
+            author: "Isabella Green",
+            category: "Business Development",
         },
         {
             id: 5,
             image: "https://via.placeholder.com/300",
-            title: "Top React Features Every Developer Should Know",
+            title: "Maximizing ROI with Strategic Project Management",
             excerpt:
-                "Explore the latest and greatest features React offers to streamline your development process.",
-            date: "Dec 20, 2024",
-            author: "Md. Sajjad Hossain",
-            category: "Web Development",
+                "Project management is critical for maximizing return on investment. Here’s how you can optimize resources, timelines, and team performance for greater project success.",
+            date: "Dec 5, 2024",
+            author: "William Brown",
+            category: "Project Management",
         },
         {
             id: 6,
             image: "https://via.placeholder.com/300",
-            title: "Case Study: Scaling an E-commerce Business",
+            title: "The Role of Leadership in Business Growth",
             excerpt:
-                "A deep dive into how we helped scale a client's e-commerce business to 5x growth.",
-            date: "Dec 15, 2024",
-            author: "Md. Sajjad Hossain",
-            category: "Case Study",
+                "Effective leadership is the foundation of any business’s success. Learn how strong leadership drives growth, fosters innovation, and inspires teams to reach their full potential.",
+            date: "Dec 1, 2024",
+            author: "Olivia Johnson",
+            category: "Leadership & Growth",
         },
     ];
+
 
     return (
         <div className="blogs-container">

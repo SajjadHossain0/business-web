@@ -1,5 +1,5 @@
 import React from 'react';
-import './OurStory.css'
+import './OurStory.css';
 
 export default function OurStory(props) {
     return (
@@ -7,23 +7,15 @@ export default function OurStory(props) {
             <div className="story-text">
                 <h1>Our Story</h1>
                 <p>
-                    Founded with a vision to bridge innovation and practicality, Cube Development Ltd. began as a small
-                    team of passionate engineers, designers, and problem-solvers. Our journey started in [Year], with a
-                    single project that not only challenged us but also set the foundation for our commitment to
-                    excellence. As we’ve grown, we’ve remained rooted in the values that shaped our beginnings:
-                    integrity, dedication, and a relentless pursuit of quality.
-
-                    From designing state-of-the-art commercial buildings to pioneering sustainable solutions in civil
-                    and environmental engineering, every project is an opportunity for us to make a lasting impact. We
-                    take pride in delivering customized, high-quality services tailored to meet the specific needs of
-                    each client, blending expertise with creativity to bring visions to life.
-
-                    Our team has expanded, our technology has evolved, and our services have diversified, but our
-                    commitment to quality and client satisfaction remains stronger than ever. Today, Cube Development
-                    Ltd. stands as a leader in consulting and engineering, dedicated to shaping a sustainable and
-                    innovative future for the communities we serve.
+                    Founded with the goal of merging innovation with practicality, our company began as a small group of passionate engineers, designers, and problem-solvers. Our journey began in [Year], with a single project that tested our capabilities and established the foundation of our commitment to excellence. As we've grown, we've remained committed to the values that shaped our beginnings: integrity, dedication, and an unwavering pursuit of quality.
+                </p>
+                <p>
+                    From designing modern commercial spaces to creating sustainable solutions in civil and environmental engineering, every project we undertake is an opportunity to make a lasting impact. We take pride in offering tailored, high-quality services to meet the unique needs of each client, combining expertise with creativity to bring their vision to life.
+                </p>
+                <p>
+                    Over the years, our team has expanded, our technology has evolved, and our services have diversified. Yet, our dedication to quality and client satisfaction remains as strong as ever. Today, we are proud to be a trusted leader in consulting and engineering, committed to shaping a sustainable, innovative future for the communities we serve.
                 </p>
             </div>
         </section>
-    )
+    );
 }

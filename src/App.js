@@ -29,9 +29,6 @@ function App() {
                 <Routes>
                     <Route path="/services" element={<Service/>}/>
                 </Routes>
-                {/*<Routes>
-                    <Route path="/portfolio" element={<Portfolio/>}/>
-                </Routes>*/}
                 <Routes>
                     <Route path="/gallery" element={<Gallery/>}/>
                 </Routes>
@@ -52,3 +49,4 @@ function App() {
 }
 
 export default App;
+

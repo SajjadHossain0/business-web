@@ -10,24 +10,22 @@ export default function ServiceCards() {
     const [cards] = useState([
         {
             title: <GiGearHammer />,
-            text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. In
-      perspiciatis soluta nam vero sapiente eius fugit distinctio
-      pariatur? A, molestias.`,
+            text: `We specialize in delivering tailored software solutions that align perfectly with your business needs, ensuring efficiency and scalability.`,
         },
         {
             title: <FaGear />,
-            text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. In
-      perspiciatis soluta`,
+            text: `From sleek designs to robust backend solutions, we craft professional websites that elevate your online presence.`,
+
         },
         {
             title: <FaTools />,
-            text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. In
-      perspiciatis soluta dolor sit amet consectetur adipisicing elit.`,
+            text: `Ensure your business runs smoothly with our dedicated support team, offering system monitoring and regular maintenance services.`,
+
         },
         {
             title: <GrTools />,
-            text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. In
-      perspiciatis soluta`,
+            text: `Our experts provide strategic advice to help you optimize technology investments and achieve business goals effectively.`,
+
         }
     ]);
 

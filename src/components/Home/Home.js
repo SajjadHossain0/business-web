@@ -35,35 +35,3 @@ export default function Home() {
         </div>
     )
 }
-
-/*
-
-Hero Section
-    Background Image or Video: Use a dynamic visual of construction sites, architectural designs, or environmental projects.
-    Tagline: A brief tagline that captures CDL’s values, like "Building Tomorrow with Expertise Today."
-    Call to Action (CTA): Buttons like “Our Services,” “Request a Quote,” and “Contact Us.”
-
-About Section
-    Brief Company Introduction: A concise paragraph about CDL, emphasizing its consulting and construction expertise and adherence to international standards.
-    Core Values/Highlights: Add bullet points or icons to showcase core values like “Reliability,” “Innovation,” and “International Standards.”
-
-
-Services Section
-    Service Categories with Icons or Images: List main services (e.g., Civil, Architectural, Electrical) with a brief description for each. Include visuals or icons representing each service to enhance clarity.
-    Project Specialties: Showcase specific project types like apartment buildings, commercial complexes, and industrial facilities with quick descriptions.
-
-Why Choose Us Section
-
-Portfolio or Case Studies
-    Highlighted Projects: Showcase a few projects with images, descriptions, and key achievements. A “View All Projects” button could lead to a portfolio page.
-    Success Metrics: Display relevant project stats or client satisfaction rates to build trust.
-
-Testimonials or Client Reviews
-
-Contact Information & CTA
-    Simple Contact Form: Make it easy for visitors to request quotes or ask questions.
-    Contact Details: Include phone, email, and physical address to make CDL accessible.
-    Social Media Links: If CDL has a presence on platforms like LinkedIn or Facebook, link to these.
-
-Footer
-*/
