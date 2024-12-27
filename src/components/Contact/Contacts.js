@@ -1,5 +1,6 @@
 import React from "react";
 import "./Contacts.css";
+import {FaFacebook, FaLinkedin, FaYoutube} from "react-icons/fa";
 
 export default function Contacts() {
     return (
@@ -70,13 +71,13 @@ export default function Contacts() {
                 <h2 className="social-title">Follow Us</h2>
                 <div className="social-icons">
                     <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-link">
-                        <i className="fab fa-facebook"></i>
+                        <FaFacebook/>
+                    </a>
+                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="social-link">
+                        <FaYoutube/>
                     </a>
                     <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link">
-                        <i className="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="social-link">
-                        <i className="fab fa-github"></i>
+                        <FaLinkedin/>
                     </a>
                 </div>
             </div>
