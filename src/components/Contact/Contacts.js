@@ -1,6 +1,6 @@
 import React from "react";
 import "./Contacts.css";
-import {FaFacebook, FaLinkedin, FaYoutube} from "react-icons/fa";
+import { FaFacebook, FaLinkedin, FaYoutube } from "react-icons/fa";
 
 export default function Contacts() {
     return (
@@ -8,7 +8,7 @@ export default function Contacts() {
             <header className="contact-header">
                 <h1 className="contact-title">Get in Touch</h1>
                 <p className="contact-subtitle">
-                    We're here to help. Fill out the form or reach us using the information below.
+                    We are here to assist you with any inquiries. Fill out the form below or contact us through the details provided.
                 </p>
             </header>
 
@@ -41,13 +41,13 @@ export default function Contacts() {
                 <div className="contact-details-section">
                     <h2 className="details-title">Contact Information</h2>
                     <p className="details-item">
-                        <strong>Address:</strong> 123 Main Street, Dhaka, Bangladesh
+                        <strong>Address:</strong> 456 Business Road, Dhaka, Bangladesh
                     </p>
                     <p className="details-item">
-                        <strong>Phone:</strong> <a href="tel:+880123456789" className="details-link">+880 123-456-789</a>
+                        <strong>Phone:</strong> <a href="tel:+880987654321" className="details-link">+880 987-654-321</a>
                     </p>
                     <p className="details-item">
-                        <strong>Email:</strong> <a href="mailto:sajjad.tech.eng@gmail.com" className="details-link">sajjad.tech.eng@gmail.com</a>
+                        <strong>Email:</strong> <a href="mailto:info@company.com" className="details-link">info@company.com</a>
                     </p>
                     <p className="details-item">
                         <strong>Business Hours:</strong> Mon - Fri, 9:00 AM - 6:00 PM
@@ -71,13 +71,13 @@ export default function Contacts() {
                 <h2 className="social-title">Follow Us</h2>
                 <div className="social-icons">
                     <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-link">
-                        <FaFacebook/>
+                        <FaFacebook />
                     </a>
                     <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="social-link">
-                        <FaYoutube/>
+                        <FaYoutube />
                     </a>
                     <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link">
-                        <FaLinkedin/>
+                        <FaLinkedin />
                     </a>
                 </div>
             </div>
