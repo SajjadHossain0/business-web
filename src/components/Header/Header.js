@@ -46,7 +46,7 @@ function Header(args) {
                             <NavLink className="navLink" href="/blogs">Blog's</NavLink>
                         </NavItem>
                         <NavItem className="navItem">
-                            <NavLink className="navLink" href="/contact">Contact</NavLink>
+                            <NavLink className="navLink" href="/contact-us">Contact us</NavLink>
                         </NavItem>
                     </Nav>
                 </Collapse>
