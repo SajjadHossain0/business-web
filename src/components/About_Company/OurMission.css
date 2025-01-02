@@ -14,6 +14,7 @@ The media query for screens smaller than 768px (@media (max-width: 768px)) chang
     flex-wrap: wrap;
     margin-top: 50px;
     padding: 20px;
+    padding-top: 70px;
 }
 
 .mission-content {

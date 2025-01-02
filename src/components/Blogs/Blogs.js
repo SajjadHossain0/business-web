@@ -1,5 +1,7 @@
 import React from "react";
 import "./Blogs.css";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 export default function Blogs() {
 
@@ -68,28 +70,33 @@ export default function Blogs() {
 
 
     return (
-        <div className="blogs-container">
-            <header className="blogs-header">
-                <h1>Our Blogs</h1>
-                <p>Stay updated with insights, tips, and stories from our team.</p>
-            </header>
+        <>
+            <Header/>
+            <div className="blogs-container">
+                <header className="blogs-header">
+                    <h1>Our Blogs</h1>
+                    <p>Stay updated with insights, tips, and stories from our team.</p>
+                </header>
 
-            <div className="blogs-grid">
-                {blogs.map((blog) => (
-                    <div className="blog-card" key={blog.id}>
-                        <img src={blog.image} alt={blog.title} className="blog-image" />
-                        <div className="blog-content">
-                            <h3 className="blog-title">{blog.title}</h3>
-                            <p className="blog-excerpt">{blog.excerpt}</p>
-                            <div className="blog-meta">
-                                <span className="blog-date">{blog.date}</span> |{" "}
-                                <span className="blog-author">{blog.author}</span>
+                <div className="blogs-grid">
+                    {blogs.map((blog) => (
+                        <div className="blog-card" key={blog.id}>
+                            <img src={blog.image} alt={blog.title} className="blog-image"/>
+                            <div className="blog-content">
+                                <h3 className="blog-title">{blog.title}</h3>
+                                <p className="blog-excerpt">{blog.excerpt}</p>
+                                <div className="blog-meta">
+                                    <span className="blog-date">{blog.date}</span> |{" "}
+                                    <span className="blog-author">{blog.author}</span>
+                                </div>
+                                <button className="read-more">Read More</button>
                             </div>
-                            <button className="read-more">Read More</button>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
-        </div>
+            <Footer/>
+        </>
+
     );
 }

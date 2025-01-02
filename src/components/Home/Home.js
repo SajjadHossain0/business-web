@@ -12,6 +12,7 @@ import advertise4 from "../images/img5.jpg"
 import WhyChooseUs from "./WhyChooseUs";
 import Contact from "./Contact";
 import ImageGrid from "./ImageGrid";
+import Footer from "../Footer/Footer";
 
 export default function Home() {
 
@@ -25,6 +26,7 @@ export default function Home() {
 
     return (
         <div>
+            <Header/>
             <Advertisement images={adImages} interval={3000}/>
             <About/>
             <ServiceCards/>
@@ -32,6 +34,7 @@ export default function Home() {
             <ImageGrid/>
             <ClintThought/>
             <Contact/>
+            <Footer/>
         </div>
     )
 }

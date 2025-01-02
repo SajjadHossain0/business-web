@@ -1,0 +1,18 @@
+.admin-dashboard {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+}
+
+.admin-body {
+    display: flex;
+    flex: 1;
+}
+
+.admin-content {
+    flex: 1;
+    padding: 20px;
+    background: #f8f9fa;
+    overflow-y: auto;
+}

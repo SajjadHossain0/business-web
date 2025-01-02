@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
 import Home from "./components/Home/Home";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
 import AboutCompany from "./components/About_Company/AboutCompany";
 import Service from "./components/Services/Service";
-import Portfolio from "./components/Portfolio/Portfolio";
 import Gallery from "./components/Gallery/Gallery";
 import MajorClints from "./components/Major_Clints/MajorClints";
 import Blogs from "./components/Blogs/Blogs";
 import Contacts from "./components/Contact/Contacts";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {useState} from "react";
+import AdminDashboard from "./components/AdminPanel/AdminDashboard";
+import Login from "./components/AdminPanel/Authentication/Login";
+import Registration from "./components/AdminPanel/Authentication/Registration";
 
 function App() {
 
     return (
         <div className="App">
-            <Header/>
 
             <BrowserRouter>
                 <Routes>
@@ -41,9 +38,19 @@ function App() {
                 <Routes>
                     <Route path="/contact-us" element={<Contacts/>}/>
                 </Routes>
+
+
+                <Routes>
+                    <Route path="/admin-dashboard" element={<AdminDashboard/>}/>
+                </Routes>
+                <Routes>
+                    <Route path="/login" element={<Login/>}/>
+                </Routes>
+                <Routes>
+                    <Route path="/register" element={<Registration/>}/>
+                </Routes>
             </BrowserRouter>
 
-            <Footer/>
         </div>
     );
 }
