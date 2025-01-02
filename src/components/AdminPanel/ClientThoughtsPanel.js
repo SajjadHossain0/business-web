@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function HomePanel() {
+export default function ClientThoughtsPanel() {
     return (
         <>
 

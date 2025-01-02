@@ -10,7 +10,6 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import AdminDashboard from "./components/AdminPanel/AdminDashboard";
 import Login from "./components/AdminPanel/Authentication/Login";
 import Registration from "./components/AdminPanel/Authentication/Registration";
-import HomePanel from "./components/AdminPanel/HomePanel";
 
 function App() {
 
@@ -49,9 +48,6 @@ function App() {
                 </Routes>
                 <Routes>
                     <Route path="/register" element={<Registration/>}/>
-                </Routes>
-                <Routes>
-                    <Route path="/homepanel" element={<HomePanel/>}/>
                 </Routes>
             </BrowserRouter>
 
