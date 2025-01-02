@@ -5,7 +5,7 @@ export default function AdminSidebar() {
     return (
         <aside className="admin-sidebar">
             <ul>
-                <li>Dashboard</li>
+                <li><a href="/homepanel">Home Panel</a></li>
                 <li>Manage Users</li>
                 <li>Orders</li>
                 <li>Products</li>
