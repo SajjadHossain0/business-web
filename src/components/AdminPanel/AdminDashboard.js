@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import AdminHeader from "./AdminHeader";
 import AdminSidebar from "./AdminSidebar";
 import "./AdminDashboard.css";
-import HomePanel from "./HomePanel";
 import CompanyDetails from "./CompanyDetails";
 import ClientThoughtsPanel from "./ClientThoughtsPanel";
 import GalleryPanel from "./GalleryPanel";
@@ -16,8 +15,6 @@ export default function AdminDashboard() {
 
     const renderContent = () => {
         switch (activeContent) {
-            case "HomePanel":
-                return <HomePanel />;
             case "CompanyDetails":
                 return <CompanyDetails />;
             case "ClientThoughts":
@@ -51,6 +48,7 @@ export default function AdminDashboard() {
 Login
 
 Home =>
+advertisement image
     About us
     picture
     social links
