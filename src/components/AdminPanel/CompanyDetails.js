@@ -1,17 +1,56 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./CompanyDetails.css";
+import apiClient from "../API/apiClient";
 
 export default function CompanyDetails() {
     const [teamMembers, setTeamMembers] = useState([]);
     const [directors, setDirectors] = useState([]);
 
-    const handleAddMember = (list, setList, newMember) => {
-        setList([...list, { id: Date.now(), ...newMember }]);
+    // Fetch all team members from the backend
+    const fetchTeamMembers = async () => {
+        try {
+            const response = await apiClient.get("/team/get-all");
+            setTeamMembers(response.data);
+        } catch (error) {
+            console.error("Error fetching team members:", error);
+        }
     };
 
-    const handleDeleteMember = (list, setList, id) => {
-        setList(list.filter((member) => member.id !== id));
+    // Fetch all board members from the backend
+    const fetchDirectors = async () => {
+        try {
+            const response = await apiClient.get("/board/get-all");
+            setDirectors(response.data);
+        } catch (error) {
+            console.error("Error fetching board members:", error);
+        }
     };
+
+    // Add a new member (team or board)
+    const handleAddMember = async (endpoint, list, setList, newMember) => {
+        try {
+            const response = await apiClient.post(endpoint, newMember);
+            setList([...list, response.data]);
+        } catch (error) {
+            console.error(`Error adding to ${endpoint}:`, error);
+        }
+    };
+
+    // Delete a member (team or board)
+    const handleDeleteMember = async (endpoint, list, setList, id) => {
+        try {
+            await apiClient.delete(`${endpoint}/${id}`);
+            setList(list.filter((member) => member.id !== id));
+        } catch (error) {
+            console.error(`Error deleting from ${endpoint}:`, error);
+        }
+    };
+
+    // Fetch data on component mount
+    useEffect(() => {
+        fetchTeamMembers();
+        fetchDirectors();
+    }, []);
 
     return (
         <div className="company-details">
@@ -21,16 +60,24 @@ export default function CompanyDetails() {
             <TeamSection
                 title="Our Team"
                 members={teamMembers}
-                onAdd={(newMember) => handleAddMember(teamMembers, setTeamMembers, newMember)}
-                onDelete={(id) => handleDeleteMember(teamMembers, setTeamMembers, id)}
+                onAdd={(newMember) =>
+                    handleAddMember("/team/add", teamMembers, setTeamMembers, newMember)
+                }
+                onDelete={(id) =>
+                    handleDeleteMember("/team/delete", teamMembers, setTeamMembers, id)
+                }
             />
 
             {/* Board of Directors Section */}
             <TeamSection
                 title="Board of Directors"
                 members={directors}
-                onAdd={(newDirector) => handleAddMember(directors, setDirectors, newDirector)}
-                onDelete={(id) => handleDeleteMember(directors, setDirectors, id)}
+                onAdd={(newDirector) =>
+                    handleAddMember("/board/add", directors, setDirectors, newDirector)
+                }
+                onDelete={(id) =>
+                    handleDeleteMember("/board/delete", directors, setDirectors, id)
+                }
             />
         </div>
     );
