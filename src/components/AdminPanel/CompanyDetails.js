@@ -29,12 +29,23 @@ export default function CompanyDetails() {
     // Add a new member (team or board)
     const handleAddMember = async (endpoint, list, setList, newMember) => {
         try {
-            const response = await apiClient.post(endpoint, newMember);
+            const formData = new FormData();
+            formData.append("image", newMember.image); // File object
+            formData.append("name", newMember.name);
+            formData.append("position", newMember.position);
+            formData.append("bio", newMember.bio);
+
+            const response = await apiClient.post(endpoint, formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            });
             setList([...list, response.data]);
         } catch (error) {
             console.error(`Error adding to ${endpoint}:`, error);
         }
     };
+
 
     // Delete a member (team or board)
     const handleDeleteMember = async (endpoint, list, setList, id) => {
@@ -67,6 +78,8 @@ export default function CompanyDetails() {
                     handleDeleteMember("/team/delete", teamMembers, setTeamMembers, id)
                 }
             />
+
+
 
             {/* Board of Directors Section */}
             <TeamSection
@@ -105,10 +118,9 @@ function TeamSection({ title, members, onAdd, onDelete }) {
             <h3>{title}</h3>
             <div className="form">
                 <input
-                    type="text"
-                    placeholder="Image URL"
-                    value={newMember.image}
-                    onChange={(e) => setNewMember({ ...newMember, image: e.target.value })}
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) => setNewMember({...newMember, image: e.target.files[0]})}
                 />
                 <input
                     type="text"
@@ -134,7 +146,10 @@ function TeamSection({ title, members, onAdd, onDelete }) {
             <ul className="team-list">
                 {members.map((member) => (
                     <li key={member.id}>
-                        <img src={member.image} alt={member.name} />
+                        <img
+                            src={`data:image/jpeg;base64,${member.image}`} // Assuming image is base64
+                            alt={member.name}
+                        />
                         <div>
                             <h4>{member.name}</h4>
                             <p>{member.position}</p>

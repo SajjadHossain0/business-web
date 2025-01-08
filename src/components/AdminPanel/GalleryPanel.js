@@ -1,24 +1,63 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./GalleryPanel.css";
 
 export default function GalleryPanel() {
     const [galleryItems, setGalleryItems] = useState([]);
-    const [image, setImage] = useState("");
+    const [image, setImage] = useState(null); // File object
     const [title, setTitle] = useState("");
 
-    const handleAddItem = (e) => {
+    // Fetch gallery items from the backend
+    useEffect(() => {
+        const fetchGalleryItems = async () => {
+            try {
+                const response = await axios.get("http://localhost:8080/api/gallery/get-all");
+                setGalleryItems(response.data);
+            } catch (error) {
+                console.error("Error fetching gallery items:", error);
+            }
+        };
+
+        fetchGalleryItems();
+    }, []);
+
+    // Handle adding a new gallery item
+    const handleAddItem = async (e) => {
         e.preventDefault();
         if (image && title) {
-            setGalleryItems([...galleryItems, { id: Date.now(), image, title }]);
-            setImage("");
-            setTitle("");
+            const formData = new FormData();
+            formData.append("image", image);
+            formData.append("title", title);
+
+            try {
+                const response = await axios.post("http://localhost:8080/api/gallery/add", formData, {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                    },
+                });
+                setGalleryItems([...galleryItems, response.data]); // Add the new item to the gallery
+                setImage(null);
+                setTitle("");
+                alert("Image added successfully!");
+            } catch (error) {
+                console.error("Error adding gallery item:", error);
+                alert("Failed to add image. Please try again.");
+            }
         } else {
-            alert("Please fill out both fields before adding!");
+            alert("Please provide an image and a title.");
         }
     };
 
-    const handleDeleteItem = (id) => {
-        setGalleryItems(galleryItems.filter((item) => item.id !== id));
+    // Handle deleting a gallery item
+    const handleDeleteItem = async (id) => {
+        try {
+            await axios.delete(`http://localhost:8080/api/gallery/delete/${id}`);
+            setGalleryItems(galleryItems.filter((item) => item.id !== id));
+            alert("Image deleted successfully!");
+        } catch (error) {
+            console.error("Error deleting gallery item:", error);
+            alert("Failed to delete image. Please try again.");
+        }
     };
 
     return (
@@ -28,14 +67,13 @@ export default function GalleryPanel() {
             {/* Add Image Form */}
             <form className="gallery-form" onSubmit={handleAddItem}>
                 <div className="form-group">
-                    <label htmlFor="image">Image URL</label>
+                    <label htmlFor="image">Image</label>
                     <input
-                        type="text"
+                        type="file"
                         id="image"
-                        value={image}
-                        onChange={(e) => setImage(e.target.value)}
-                        placeholder="Enter image URL"
+                        onChange={(e) => setImage(e.target.files[0])} // Capture the file object
                         className="form-control"
+                        accept="image/*"
                     />
                 </div>
 
@@ -63,7 +101,11 @@ export default function GalleryPanel() {
                     <ul className="gallery-list">
                         {galleryItems.map((item) => (
                             <li key={item.id} className="gallery-item">
-                                <img src={item.image} alt={item.title} className="gallery-image" />
+                                <img
+                                    src={`data:image/jpeg;base64,${item.image}`} // Display image from bytes
+                                    alt={item.title}
+                                    className="gallery-image"
+                                />
                                 <div className="gallery-info">
                                     <h4>{item.title}</h4>
                                     <button
