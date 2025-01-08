@@ -3,184 +3,195 @@ import "./ContactsPanel.css";
 import apiClient from "../API/apiClient";
 
 export default function ContactsPanel() {
-    const [contactData, setContactData] = useState({
+    const [contacts, setContacts] = useState([]);
+    const [formData, setFormData] = useState({
+        id: null,
         address: "",
-        phoneNumber: "",
+        phone: "",
         email: "",
-        businessHours: "",
-        socialLinks: {
-            facebook: "",
-            youtube: "",
-            linkedin: "",
-            instagram: ""
-        },
+        businesshour: "",
+        facebooklink: "",
+        linkedinlink: "",
+        instagramlink: "",
+        youtubelink: "",
     });
 
+    const [isEditing, setIsEditing] = useState(false);
+
     useEffect(() => {
-        fetchContactData();
+        fetchContacts();
     }, []);
 
-    const fetchContactData = async () => {
+    const fetchContacts = async () => {
         try {
-            const response = await apiClient.get("/contact/get");
-            setContactData(response.data || {});
+            const response = await apiClient.get("/contact/get-contacts"); // Use apiClient here
+            setContacts(response.data);
         } catch (error) {
-            console.error("Failed to fetch contact data", error);
+            console.error("Error fetching contacts:", error);
         }
     };
 
-    const handleChange = (e) => {
+    const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setContactData({ ...contactData, [name]: value });
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
     };
 
-    const handleSocialChange = (e, platform) => {
-        setContactData({
-            ...contactData,
-            socialLinks: {
-                ...contactData.socialLinks,
-                [platform]: e.target.value,
-            },
-        });
-    };
-
-    const saveContactData = async (e) => {
+    const handleSave = async (e) => {
         e.preventDefault();
-        const dataToSave = {
-            address: contactData.address,
-            phone: contactData.phoneNumber,
-            email: contactData.email,
-            businesshour: contactData.businessHours,
-            facebooklink: contactData.socialLinks.facebook,
-            linkedinlink: contactData.socialLinks.linkedin,
-            instagramlink: contactData.socialLinks.instagram,
-            youtubelink: contactData.socialLinks.youtube
-        };
-        try {
-            await apiClient.post("/contact/save-contacts", dataToSave);
-            alert("Contact information saved successfully!");
-        } catch (error) {
-            console.error("Failed to save contact data", error);
-        }
-    };
 
-
-    const deleteContactData = async () => {
-        if (!contactData.id) {
-            alert("No contact ID found to delete.");
-            return;
-        }
         try {
-            await apiClient.delete(`/contact/delete/${contactData.id}`);
-            setContactData({
+            if (isEditing && formData.id) {
+                // Update existing contact
+                await apiClient.put(`/contact/edit/${formData.id}`, formData); // Use apiClient here
+                alert("Contact updated successfully!");
+            } else {
+                // Add new contact
+                await apiClient.post("/contact/save-contacts", formData); // Use apiClient here
+                alert("Contact added successfully!");
+            }
+
+            setFormData({
+                id: null,
                 address: "",
-                phoneNumber: "",
+                phone: "",
                 email: "",
-                businessHours: "",
-                socialLinks: {
-                    facebook: "",
-                    youtube: "",
-                    linkedin: "",
-                    instagram: ""
-                },
+                businesshour: "",
+                facebooklink: "",
+                linkedinlink: "",
+                instagramlink: "",
+                youtubelink: "",
             });
-            alert("Contact information deleted successfully!");
+            setIsEditing(false);
+            fetchContacts();
         } catch (error) {
-            console.error("Failed to delete contact data", error);
-            alert("Failed to delete contact data.");
+            console.error("Error saving contact:", error);
         }
     };
 
+    const handleEdit = (contact) => {
+        setFormData(contact);
+        setIsEditing(true);
+    };
 
+    const handleDelete = async (id) => {
+        try {
+            await apiClient.delete(`/contact/delete/${id}`); // Use apiClient here
+            alert("Contact deleted successfully!");
+            fetchContacts();
+        } catch (error) {
+            console.error("Error deleting contact:", error);
+        }
+    };
 
     return (
         <div className="contacts-panel">
-            <h1 className="panel-title">Contact Information</h1>
-            <form className="contact-form" onSubmit={saveContactData}>
+            <h1>Contact Management</h1>
+            <form onSubmit={handleSave} className="contact-form">
                 <div className="form-group">
-                    <label htmlFor="address">Address</label>
+                    <label>Address</label>
                     <textarea
-                        id="address"
                         name="address"
-                        value={contactData.address}
-                        onChange={handleChange}
-                        rows="3"
-                        placeholder="Enter your company's address"
+                        value={formData.address}
+                        onChange={handleInputChange}
+                        rows="2"
+                        placeholder="Enter address"
                     ></textarea>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="phone">Phone Number</label>
-                    <input
-                        type="tel"
-                        id="phone"
-                        name="phoneNumber"
-                        value={contactData.phone}
-                        onChange={handleChange}
-                        placeholder="Enter your phone number"
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="email">Email</label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={contactData.email}
-                        onChange={handleChange}
-                        placeholder="Enter your email address"
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="business-hours">Business Hours</label>
+                    <label>Phone</label>
                     <input
                         type="text"
-                        id="business-hours"
-                        name="businessHours"
-                        value={contactData.businesshour}
-                        onChange={handleChange}
-                        placeholder="e.g., Mon-Fri, 9:00 AM - 5:00 PM"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        placeholder="Enter phone number"
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="social-links">Social Links</label>
-                    <div className="social-links">
-                        <input
-                            type="text"
-                            placeholder="Facebook URL"
-                            value={contactData.facebooklink}
-                            onChange={(e) => handleSocialChange(e, "facebook")}
-                        />
-                        <input
-                            type="text"
-                            placeholder="YouTube URL"
-                            value={contactData.youtubelink}
-                            onChange={(e) => handleSocialChange(e, "youtube")}
-                        />
-                        <input
-                            type="text"
-                            placeholder="LinkedIn URL"
-                            value={contactData.linkedinlink}
-                            onChange={(e) => handleSocialChange(e, "linkedin")}
-                        />
-                        <input
-                            type="text"
-                            placeholder="Instagram URL"
-                            value={contactData.instagramlink}
-                            onChange={(e) => handleSocialChange(e, "instagram")}
-                        />
-                    </div>
+                    <label>Email</label>
+                    <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        placeholder="Enter email"
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Business Hours</label>
+                    <input
+                        type="text"
+                        name="businesshour"
+                        value={formData.businesshour}
+                        onChange={handleInputChange}
+                        placeholder="Enter business hours"
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Facebook Link</label>
+                    <input
+                        type="text"
+                        name="facebooklink"
+                        value={formData.facebooklink}
+                        onChange={handleInputChange}
+                        placeholder="Enter Facebook URL"
+                    />
+                </div>
+                <div className="form-group">
+                    <label>LinkedIn Link</label>
+                    <input
+                        type="text"
+                        name="linkedinlink"
+                        value={formData.linkedinlink}
+                        onChange={handleInputChange}
+                        placeholder="Enter LinkedIn URL"
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Instagram Link</label>
+                    <input
+                        type="text"
+                        name="instagramlink"
+                        value={formData.instagramlink}
+                        onChange={handleInputChange}
+                        placeholder="Enter Instagram URL"
+                    />
+                </div>
+                <div className="form-group">
+                    <label>YouTube Link</label>
+                    <input
+                        type="text"
+                        name="youtubelink"
+                        value={formData.youtubelink}
+                        onChange={handleInputChange}
+                        placeholder="Enter YouTube URL"
+                    />
                 </div>
                 <button type="submit" className="save-button">
-                    Save Information
-                </button>
-                <button
-                    type="button"
-                    className="delete-button"
-                    onClick={deleteContactData}
-                >
-                    Delete Information
+                    {isEditing ? "Update Contact" : "Add Contact"}
                 </button>
             </form>
+
+            <div className="contacts-list">
+                <h2>Saved Contacts</h2>
+                {contacts.map((contact) => (
+                    <div key={contact.id} className="contact-card">
+                        <p><strong>Address:</strong> {contact.address}</p>
+                        <p><strong>Phone:</strong> {contact.phone}</p>
+                        <p><strong>Email:</strong> {contact.email}</p>
+                        <p><strong>Business Hours:</strong> {contact.businesshour}</p>
+                        <p><strong>Facebook:</strong> {contact.facebooklink}</p>
+                        <p><strong>LinkedIn:</strong> {contact.linkedinlink}</p>
+                        <p><strong>Instagram:</strong> {contact.instagramlink}</p>
+                        <p><strong>YouTube:</strong> {contact.youtubelink}</p>
+                        <button onClick={() => handleEdit(contact)} className="edit-button">Edit</button>
+                        <button onClick={() => handleDelete(contact.id)} className="delete-button">Delete</button>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }
