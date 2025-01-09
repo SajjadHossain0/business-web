@@ -15,9 +15,22 @@ export default function ClintThoughtsPanel() {
             .catch((error) => console.error("Error fetching testimonials:", error));
     }, []);
 
-    // Handle form submission to add a new testimonial
+    const fetchThoughts = async () => {
+        try {
+            const response = await apiClient.get("/testimonials");
+            setThoughts(response.data); // Assuming the API returns an array of testimonials
+        } catch (error) {
+            console.error("Error fetching testimonials:", error);
+        }
+    };
+
+    useEffect(() => {
+        fetchThoughts();
+    }, []);
+
     const handleAddThought = async (e) => {
         e.preventDefault();
+
         if (image && name && text) {
             const formData = new FormData();
             formData.append("image", image); // Ensure `image` is a File object
@@ -31,6 +44,14 @@ export default function ClintThoughtsPanel() {
                     },
                 });
                 console.log("Testimonial added successfully:", response.data);
+
+                // Update local state to include the new testimonial
+                setThoughts((prevThoughts) => [...prevThoughts, response.data]);
+
+                // Clear form fields
+                setImage(null);
+                setName("");
+                setText("");
             } catch (error) {
                 console.error("Error adding testimonial:", error);
             }
