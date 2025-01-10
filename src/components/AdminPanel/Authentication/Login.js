@@ -1,15 +1,32 @@
 import React, { useState } from 'react';
 import './Authentication.css';
 import AdminHeader from "../AdminHeader";
+import apiClient from "../../API/apiClient";
+import {Navigate, useNavigate} from "react-router-dom";
 
 export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Login Details:", { email, password });
-        // Add your login API integration here
+
+        try {
+            const response = await apiClient.post('/auth/login', { email, password });
+            console.log("Login Successful:", response.data);
+
+            // Store token in local storage or cookies
+            localStorage.setItem("token", response.data.token);
+
+            // Redirect or handle successful login
+            navigate("/admin-dashboard");
+
+        } catch (error) {
+            console.error("Login Error:", error.response?.data?.message || error.message);
+            setError(error.response?.data?.message || "An error occurred during login.");
+        }
     };
 
     return (
@@ -20,6 +37,7 @@ export default function Login() {
                     <h2 className="auth-title">Welcome Back</h2>
                     <p className="auth-subtitle">Log in to access your account</p>
                     <form onSubmit={handleSubmit}>
+                        {error && <p className="error-message">{error}</p>}
                         <div className="form-group">
                             <label>Email</label>
                             <input
@@ -48,6 +66,5 @@ export default function Login() {
                 </div>
             </div>
         </>
-
     );
 }

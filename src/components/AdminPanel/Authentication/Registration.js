@@ -1,16 +1,31 @@
 import React, { useState } from 'react';
 import './Authentication.css';
 import AdminHeader from "../AdminHeader";
+import apiClient from "../../API/apiClient";
 
 export default function Registration() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState(false);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Registration Details:", { name, email, password });
-        // Add your registration API integration here
+
+        try {
+            const response = await apiClient.post('/auth/register', { name, email, password });
+            console.log("Registration Successful:", response.data);
+            setSuccess(true);
+
+            // Optionally clear form fields
+            setName('');
+            setEmail('');
+            setPassword('');
+        } catch (error) {
+            console.error("Registration Error:", error.response?.data?.message || error.message);
+            setError(error.response?.data?.message || "An error occurred during registration.");
+        }
     };
 
     return (
@@ -21,6 +36,8 @@ export default function Registration() {
                     <h2 className="auth-title">Create an Account</h2>
                     <p className="auth-subtitle">Join us today and get started</p>
                     <form onSubmit={handleSubmit}>
+                        {error && <p className="error-message">{error}</p>}
+                        {success && <p className="success-message">Registration successful! You can now <a href="/login">log in</a>.</p>}
                         <div className="form-group">
                             <label>Full Name</label>
                             <input
@@ -59,6 +76,5 @@ export default function Registration() {
                 </div>
             </div>
         </>
-
     );
 }

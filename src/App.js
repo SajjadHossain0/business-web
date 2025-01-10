@@ -11,6 +11,7 @@ import AdminDashboard from "./components/AdminPanel/AdminDashboard";
 import Login from "./components/AdminPanel/Authentication/Login";
 import Registration from "./components/AdminPanel/Authentication/Registration";
 import BlogDetail from "./components/Blogs/BlogDetail";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
 
@@ -43,7 +44,9 @@ function App() {
                 </Routes>
 
                 <Routes>
-                    <Route path="/admin-dashboard" element={<AdminDashboard/>}/>
+                    <Route path="/admin-dashboard"
+                           element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>
+                    }/>
                 </Routes>
                 <Routes>
                     <Route path="/login" element={<Login/>}/>
