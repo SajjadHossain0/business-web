@@ -1,55 +1,36 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import ImageCard from "./ImageCard";
 import './BoardOfDirectors.css'
+import apiClient from "../API/apiClient";
 
 
 export default function BoardOfDirectors() {
+    const [directors, setDirectors] = useState([]);
 
-    const [images] = useState([
-        {
-            imageUrl: "https://via.placeholder.com/300x400",
-            title: "Name",
-            position: "position",
-            text: "Some text about them."
-        },
-        {
-            imageUrl: "https://via.placeholder.com/300x400",
-            title: "Name",
-            position: "position",
-            text: "Some text about them."
-        },
-        {
-            imageUrl: "https://via.placeholder.com/300x400",
-            title: "Name",
-            position: "position",
-            text: "Some text about them."
-        },
-        {
-            imageUrl: "https://via.placeholder.com/300x400",
-            title: "Name",
-            position: "position",
-            text: "Some text about them."
-        },
-        {
-            imageUrl: "https://via.placeholder.com/300x400",
-            title: "Name",
-            position: "position",
-            text: "Some text about them."
-        },
+    const fetchDirectors = async () => {
+        try {
+            const response = await apiClient.get("/board/get-all");
+            setDirectors(response.data);
+        } catch (error) {
+            console.error("Error fetching board members:", error);
+        }
+    };
 
-    ]);
+    useEffect(() => {
+        fetchDirectors();
+    }, []);
 
     return (
         <div className="bod-image-grid-container">
             <h1 style={{color: "#34495e", fontSize: 36, fontWeight: 700}} className="bod-image-grid-title">Board Of Directors</h1>
             <div className="bod-image-grid">
-                {images.slice(0, 4).map((image, index) => (
+                {directors.slice(0, 4).map((director, index) => (
                     <div key={index} className="bod-image-grid-item">
                         <ImageCard
-                            imageUrl={image.imageUrl}
-                            title={image.title}
-                            position={image.position}
-                            text={image.text}
+                            imageUrl={`data:image/jpeg;base64,${director.image}`}
+                            title={director.name}
+                            position={director.position}
+                            text={director.bio}
                         />
                     </div>
                 ))}

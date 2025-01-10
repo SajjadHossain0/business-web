@@ -1,97 +1,24 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import './Gallery.css'
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import apiClient from "../API/apiClient";
 
 export default function Gallery() {
+    const [galleryItems, setGalleryItems] = useState([]);
 
-    const [images] = useState([
-        {
-            imageUrl: "https://via.placeholder.com/500x500",
-            title: "Name",
-        },
-        {
-            imageUrl: "https://via.placeholder.com/500x500",
-            title: "Name",
-        },
-        {
-            imageUrl: "https://via.placeholder.com/500x500",
-            title: "Name",
-        },
-        {
-            imageUrl: "https://via.placeholder.com/500x500",
-            title: "Name",
-        },
-        {
-            imageUrl: "https://via.placeholder.com/500x500",
-            title: "Name",
-        },
-        {
-            imageUrl: "https://via.placeholder.com/500x500",
-            title: "Name",
-        },
-        {
-            imageUrl: "https://via.placeholder.com/500x500",
-            title: "Name",
-        },
-        {
-            imageUrl: "https://via.placeholder.com/500x500",
-            title: "Name",
-        },
-        {
-            imageUrl: "https://via.placeholder.com/500x500",
-            title: "Name",
-        },
-        {
-            imageUrl: "https://via.placeholder.com/500x500",
-            title: "Name",
-        },
-        {
-            imageUrl: "https://via.placeholder.com/500x500",
-            title: "Name",
-        },
-        {
-            imageUrl: "https://via.placeholder.com/500x500",
-            title: "Name",
-        },
-        {
-            imageUrl: "https://via.placeholder.com/500x500",
-            title: "Name",
-        },
-        {
-            imageUrl: "https://via.placeholder.com/500x500",
-            title: "Name",
-        },
-        {
-            imageUrl: "https://via.placeholder.com/500x500",
-            title: "Name",
-        },
-        {
-            imageUrl: "https://via.placeholder.com/500x500",
-            title: "Name",
-        },
-        {
-            imageUrl: "https://via.placeholder.com/500x500",
-            title: "Name",
-        },
-        {
-            imageUrl: "https://via.placeholder.com/500x500",
-            title: "Name",
-        },
-        {
-            imageUrl: "https://via.placeholder.com/500x500",
-            title: "Name",
-        },
-        {
-            imageUrl: "https://via.placeholder.com/500x500",
-            title: "Name",
-        },
-        {
-            imageUrl: "https://via.placeholder.com/500x500",
-            title: "Name",
-        },
+    useEffect(() => {
+        const fetchGalleryItems = async () => {
+            try {
+                const response = await apiClient.get("/gallery/get-all");
+                setGalleryItems(response.data);
+            } catch (error) {
+                console.error("Error fetching gallery items:", error);
+            }
+        };
 
-    ]);
+        fetchGalleryItems();
+    }, []);
 
     return (
         <>
@@ -102,9 +29,10 @@ export default function Gallery() {
                 </h1>
 
                 <div className="photo-gallery">
-                    {images.map((image, index) => (
+                    {galleryItems.map((item, index) => (
                         <div key={index} className="photo">
-                            <img src={image.imageUrl} alt={image.title}/>
+                            <img src={`data:image/jpeg;base64,${item.image}`}
+                                 alt={item.title}/>
                         </div>
                     ))}
                 </div>

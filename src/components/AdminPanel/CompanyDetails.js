@@ -46,7 +46,6 @@ export default function CompanyDetails() {
         }
     };
 
-
     // Delete a member (team or board)
     const handleDeleteMember = async (endpoint, list, setList, id) => {
         try {

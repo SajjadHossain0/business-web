@@ -1,19 +1,24 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import './ImageGrid.css';
 import {FaArrowRight} from "react-icons/fa";
+import apiClient from "../API/apiClient";
 
 export default function ImageGrid(props) {
-    const [images] = useState([
-        {
-            imageLink: "https://via.placeholder.com/500x500"
-        },
-        {
-            imageLink: "https://via.placeholder.com/500x500"
-        },
-        {
-            imageLink: "https://via.placeholder.com/500x500"
-        }
-    ]);
+    const [galleryItems, setGalleryItems] = useState([]);
+
+    // Fetch gallery items from the backend
+    useEffect(() => {
+        const fetchGalleryItems = async () => {
+            try {
+                const response = await apiClient.get("/gallery/get-all");
+                setGalleryItems(response.data);
+            } catch (error) {
+                console.error("Error fetching gallery items:", error);
+            }
+        };
+
+        fetchGalleryItems();
+    }, []);
 
     const handleShowMore = () => {
         window.location.href = '/gallery';  // Redirects to the gallery page
@@ -24,9 +29,10 @@ export default function ImageGrid(props) {
             <h1 style={{color: "#34495e", fontSize: 36, fontWeight: 700}} className="image-grid-title">Our Recent
                 Projects</h1>
             <div className="image-grid">
-                {images.slice(0, 4).map((image, index) => (
+                {galleryItems.slice(0, 4).map((image, index) => (
                     <div key={index} className="image-grid-item">
-                        <img src={image.imageLink} alt={`Project ${index + 1}`} className="image-grid-photo"/>
+                        <img src={`data:image/jpeg;base64,${image.image}`}
+                             alt={`Project ${index + 1}`} className="image-grid-photo"/>
                     </div>
                 ))}
             </div>

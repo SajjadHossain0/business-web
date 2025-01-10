@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import "./GalleryPanel.css";
+import apiClient from "../API/apiClient";
 
 export default function GalleryPanel() {
     const [galleryItems, setGalleryItems] = useState([]);
-    const [image, setImage] = useState(null); // File object
+    const [image, setImage] = useState(null);
     const [title, setTitle] = useState("");
 
     // Fetch gallery items from the backend
     useEffect(() => {
         const fetchGalleryItems = async () => {
             try {
-                const response = await axios.get("http://localhost:8080/api/gallery/get-all");
+                const response = await apiClient.get("/gallery/get-all");
                 setGalleryItems(response.data);
             } catch (error) {
                 console.error("Error fetching gallery items:", error);
@@ -30,7 +30,7 @@ export default function GalleryPanel() {
             formData.append("title", title);
 
             try {
-                const response = await axios.post("http://localhost:8080/api/gallery/add", formData, {
+                const response = await apiClient.post("/gallery/add", formData, {
                     headers: {
                         "Content-Type": "multipart/form-data",
                     },
@@ -51,7 +51,7 @@ export default function GalleryPanel() {
     // Handle deleting a gallery item
     const handleDeleteItem = async (id) => {
         try {
-            await axios.delete(`http://localhost:8080/api/gallery/delete/${id}`);
+            await apiClient.delete(`/gallery/delete/${id}`);
             setGalleryItems(galleryItems.filter((item) => item.id !== id));
             alert("Image deleted successfully!");
         } catch (error) {

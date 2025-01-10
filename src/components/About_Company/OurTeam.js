@@ -1,54 +1,36 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import './OurTeam.css'
 import ImageCard from "./ImageCard";
+import apiClient from "../API/apiClient";
 
 export default function OurTeam() {
+    const [teamMembers, setTeamMembers] = useState([]);
 
-    const [images] = useState([
-        {
-            imageUrl: "https://via.placeholder.com/300x400",
-            title: "Name",
-            position: "position",
-            text: "Some text about them."
-        },
-        {
-            imageUrl: "https://via.placeholder.com/300x400",
-            title: "Name",
-            position: "position",
-            text: "Some text about them."
-        },
-        {
-            imageUrl: "https://via.placeholder.com/300x400",
-            title: "Name",
-            position: "position",
-            text: "Some text about them."
-        },
-        {
-            imageUrl: "https://via.placeholder.com/300x400",
-            title: "Name",
-            position: "position",
-            text: "Some text about them."
-        },
-        {
-            imageUrl: "https://via.placeholder.com/300x400",
-            title: "Name",
-            position: "position",
-            text: "Some text about them."
-        },
+    const fetchTeamMembers = async () => {
+        try {
+            const response = await apiClient.get("/team/get-all");
+            setTeamMembers(response.data);
+        } catch (error) {
+            console.error("Error fetching team members:", error);
+        }
+    };
 
-    ]);
+    useEffect(() => {
+        fetchTeamMembers();
+    }, []);
+
 
     return (
         <div className="ourTeam-image-grid-container">
             <h1 style={{color: "#34495e", fontSize: 36, fontWeight: 700}} className="ourTeam-image-grid-title">Our Team</h1>
             <div className="ourTeam-image-grid">
-                {images.slice(0, 4).map((image, index) => (
+                {teamMembers.slice(0, 4).map((member, index) => (
                     <div key={index} className="ourTeam-image-grid-item">
                         <ImageCard
-                            imageUrl={image.imageUrl}
-                            title={image.title}
-                            position={image.position}
-                            text={image.text}
+                            imageUrl={`data:image/jpeg;base64,${member.image}`}
+                            title={member.name}
+                            position={member.position}
+                            text={member.bio}
                         />
                     </div>
                 ))}

@@ -1,33 +1,39 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Header from "../Header/Header";
 import Advertisement from "./Advertisement";
 import ServiceCards from "./ServiceCards";
 import ClintThought from "./ClintThought";
 import About from "./About";
-import advertise from "../images/img1.jpg"
-import advertise1 from "../images/img2.jpg"
-import advertise2 from "../images/img3.jpg"
-import advertise3 from "../images/img4.jpg"
-import advertise4 from "../images/img5.jpg"
 import WhyChooseUs from "./WhyChooseUs";
 import Contact from "./Contact";
 import ImageGrid from "./ImageGrid";
 import Footer from "../Footer/Footer";
+import apiClient from "../API/apiClient";
 
 export default function Home() {
 
-    const adImages = [
-        advertise,
-        advertise1,
-        advertise2,
-        advertise3,
-        advertise4,
-    ];
+    const [images, setImages] = useState([]);
+
+    useEffect(() => {
+        const fetchAdvertisements = async () => {
+            try {
+                const response = await apiClient.get("/advertisements/get-ads");
+                const imageUrls = response.data.map(
+                    (ad) => `data:image/jpeg;base64,${ad.image}`
+                );
+                setImages(imageUrls);
+            } catch (error) {
+                console.error("Error fetching advertisements:", error);
+            }
+        };
+
+        fetchAdvertisements();
+    }, []);
 
     return (
         <div>
             <Header/>
-            <Advertisement images={adImages} interval={3000}/>
+            <Advertisement images={images} interval={3000}/>
             <About/>
             <ServiceCards/>
             <WhyChooseUs/>
