@@ -28,7 +28,7 @@ export default function About() {
                     </div>
                     <div className="about-us-text">
                         <p>
-                            Welcome to <strong>GrowTech Solutions</strong>, your trusted partner in business and technological innovation.
+                            Welcome to <strong>ABC Co</strong>, your trusted partner in business and technological innovation.
                             With over a decade of experience, we specialize in providing top-notch business development and IT solutions to help
                             our clients achieve sustainable growth and success. Our mission is to empower businesses through innovative strategies,
                             cutting-edge technologies, and personalized services.
