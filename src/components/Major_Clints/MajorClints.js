@@ -1,9 +1,36 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./MajorClints.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import apiClient from "../API/apiClient";
 
 export default function MajorClints() {
+    const [clients, setClients] = useState([]);
+    const [successStories, setSuccessStories] = useState([]);
+
+    useEffect(() => {
+        fetchClients();
+        fetchSuccessStories();
+    }, []);
+
+    const fetchClients = async () => {
+        try {
+            const response = await apiClient.get("/major-client/get-all");
+            setClients(response.data);
+        } catch (error) {
+            console.error("Error fetching clients:", error);
+        }
+    };
+
+    const fetchSuccessStories = async () => {
+        try {
+            const response = await apiClient.get("/success-story/get-all");
+            setSuccessStories(response.data);
+        } catch (error) {
+            console.error("Error fetching success stories:", error);
+        }
+    };
+
     return (
         <>
             <Header/>
@@ -14,136 +41,41 @@ export default function MajorClints() {
                 {/* Client Logos Grid */}
                 <div className="major-clints-logos-section">
                     <h2 className="major-clints-logos-title">Trusted by Industry Leaders</h2>
+                    {clients.length > 0 ? (
                     <div className="major-clints-logos-grid">
+                        {clients.map((client) => (
                         <div className="major-clints-logo-card">
-                            <img src="https://via.placeholder.com/150" alt="Client 1"/>
-                            <p className="major-clints-logo-name">ABC Corp</p>
-                            <span className="major-clints-logo-industry">Industry: Tech</span>
+                            <img src={`data:image/jpeg;base64,${client.image}`}
+                                 alt={client.name}/>
+                            <p className="major-clints-logo-name">{client.name}</p>
+                            <span className="major-clints-logo-industry">Industry: {client.industryName}</span>
                         </div>
-                        <div className="major-clints-logo-card">
-                            <img src="https://via.placeholder.com/150" alt="Client 2"/>
-                            <p className="major-clints-logo-name">XYZ Ltd</p>
-                            <span className="major-clints-logo-industry">Industry: Construction</span>
-                        </div>
-                        <div className="major-clints-logo-card">
-                            <img src="https://via.placeholder.com/150" alt="Client 3"/>
-                            <p className="major-clints-logo-name">DEF Co.</p>
-                            <span className="major-clints-logo-industry">Industry: Retail</span>
-                        </div>
-                        <div className="major-clints-logo-card">
-                            <img src="https://via.placeholder.com/150" alt="Client 1"/>
-                            <p className="major-clints-logo-name">ABC Corp</p>
-                            <span className="major-clints-logo-industry">Industry: Tech</span>
-                        </div>
-                        <div className="major-clints-logo-card">
-                            <img src="https://via.placeholder.com/150" alt="Client 2"/>
-                            <p className="major-clints-logo-name">XYZ Ltd</p>
-                            <span className="major-clints-logo-industry">Industry: Construction</span>
-                        </div>
-                        <div className="major-clints-logo-card">
-                            <img src="https://via.placeholder.com/150" alt="Client 3"/>
-                            <p className="major-clints-logo-name">DEF Co.</p>
-                            <span className="major-clints-logo-industry">Industry: Retail</span>
-                        </div>
-                        <div className="major-clints-logo-card">
-                            <img src="https://via.placeholder.com/150" alt="Client 1"/>
-                            <p className="major-clints-logo-name">ABC Corp</p>
-                            <span className="major-clints-logo-industry">Industry: Tech</span>
-                        </div>
-                        <div className="major-clints-logo-card">
-                            <img src="https://via.placeholder.com/150" alt="Client 2"/>
-                            <p className="major-clints-logo-name">XYZ Ltd</p>
-                            <span className="major-clints-logo-industry">Industry: Construction</span>
-                        </div>
-                        <div className="major-clints-logo-card">
-                            <img src="https://via.placeholder.com/150" alt="Client 3"/>
-                            <p className="major-clints-logo-name">DEF Co.</p>
-                            <span className="major-clints-logo-industry">Industry: Retail</span>
-                        </div>
+                        ))}
                     </div>
+                    ) : (
+                        <p>No major clients found.</p>
+                    )}
                 </div>
 
                 {/* Client Success Stories */}
                 <div className="major-clints-success-section">
                     <h2 className="major-clints-success-title">Client Success Stories</h2>
+                    {successStories.length > 0 ? (
                     <div className="major-clints-success-carousel">
+                        {successStories.map((story) => (
                         <div className="major-clints-story-card">
-                            <h3 className="major-clints-story-client">ABC Corp</h3>
+                            <h3 className="major-clints-story-client">{story.successName}</h3>
                             <p className="major-clints-story-description">
-                                Developed a custom e-commerce solution that increased sales by 35%.
+                                {story.successText}
                             </p>
                             <p className="major-clints-story-testimonial">
-                                "The team delivered beyond our expectations. Highly recommended!"
-                            </p>
+                                {story.successQuote}                            </p>
                         </div>
-                        <div className="major-clints-story-card">
-                            <h3 className="major-clints-story-client">XYZ Ltd</h3>
-                            <p className="major-clints-story-description">
-                                Designed and implemented a construction management system,
-                                improving efficiency by 40%.
-                            </p>
-                            <p className="major-clints-story-testimonial">
-                                "Professional and on-point delivery every time!"
-                            </p>
-                        </div>
-                        <div className="major-clints-story-card">
-                            <h3 className="major-clints-story-client">ABC Corp</h3>
-                            <p className="major-clints-story-description">
-                                Developed a custom e-commerce solution that increased sales by 35%.
-                            </p>
-                            <p className="major-clints-story-testimonial">
-                                "The team delivered beyond our expectations. Highly recommended!"
-                            </p>
-                        </div>
-                        <div className="major-clints-story-card">
-                            <h3 className="major-clints-story-client">XYZ Ltd</h3>
-                            <p className="major-clints-story-description">
-                                Designed and implemented a construction management system,
-                                improving efficiency by 40%.
-                            </p>
-                            <p className="major-clints-story-testimonial">
-                                "Professional and on-point delivery every time!"
-                            </p>
-                        </div>
-                        <div className="major-clints-story-card">
-                            <h3 className="major-clints-story-client">ABC Corp</h3>
-                            <p className="major-clints-story-description">
-                                Developed a custom e-commerce solution that increased sales by 35%.
-                            </p>
-                            <p className="major-clints-story-testimonial">
-                                "The team delivered beyond our expectations. Highly recommended!"
-                            </p>
-                        </div>
-                        <div className="major-clints-story-card">
-                            <h3 className="major-clints-story-client">XYZ Ltd</h3>
-                            <p className="major-clints-story-description">
-                                Designed and implemented a construction management system,
-                                improving efficiency by 40%.
-                            </p>
-                            <p className="major-clints-story-testimonial">
-                                "Professional and on-point delivery every time!"
-                            </p>
-                        </div>
-                        <div className="major-clints-story-card">
-                            <h3 className="major-clints-story-client">ABC Corp</h3>
-                            <p className="major-clints-story-description">
-                                Developed a custom e-commerce solution that increased sales by 35%.
-                            </p>
-                            <p className="major-clints-story-testimonial">
-                                "The team delivered beyond our expectations. Highly recommended!"
-                            </p>
-                        </div>
-                        <div className="major-clints-story-card">
-                            <h3 className="major-clints-story-client">XYZ Ltd</h3>
-                            <p className="major-clints-story-description">
-                                Designed and implemented a construction management system,
-                                improving efficiency by 40%.
-                            </p>
-                            <p className="major-clints-story-testimonial">
-                                "Professional and on-point delivery every time!"
-                            </p>
-                        </div>
+                        ))}
                     </div>
+                    ) : (
+                        <p>No success stories found.</p>
+                    )}
                 </div>
 
                 {/* Interactive World Map */}
@@ -169,7 +101,7 @@ export default function MajorClints() {
                     </p>
                     <button
                         className="major-clints-cta-button"
-                        onClick={() => (window.location.href = "/contact")}
+                        onClick={() => (window.location.href = "/contact-us")}
                     >
                         Contact Us
                     </button>

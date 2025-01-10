@@ -10,6 +10,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import AdminDashboard from "./components/AdminPanel/AdminDashboard";
 import Login from "./components/AdminPanel/Authentication/Login";
 import Registration from "./components/AdminPanel/Authentication/Registration";
+import BlogDetail from "./components/Blogs/BlogDetail";
 
 function App() {
 
@@ -34,6 +35,8 @@ function App() {
                 </Routes>
                 <Routes>
                     <Route path="/blogs" element={<Blogs/>}/>
+                    <Route path="/blogs/:id" element={<BlogDetail />} />
+
                 </Routes>
                 <Routes>
                     <Route path="/contact-us" element={<Contacts/>}/>
