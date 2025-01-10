@@ -1,8 +1,23 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './About.css';
 import { FaFacebook, FaLinkedin, FaYoutube } from "react-icons/fa";
+import apiClient from "../API/apiClient";
 
 export default function About() {
+    const [contactdetails, setContacts] = useState([]);
+    useEffect(() => {
+        fetchContacts();
+    }, []);
+
+    const fetchContacts = async () => {
+        try {
+            const response = await apiClient.get("/contact/get-contacts"); // Use apiClient here
+            setContacts(response.data);
+        } catch (error) {
+            console.error("Error fetching contacts:", error);
+        }
+    };
+
     return (
         <div className="about-us-section">
             <div className="about-us-container">
@@ -24,17 +39,23 @@ export default function About() {
                             excellence at every stage.
                         </p>
                     </div>
-                    <div className="about-us-social-links">
-                        <a href="https://www.facebook.com/yourbusiness" target="_blank" rel="noopener noreferrer">
-                            <FaFacebook />
-                        </a>
-                        <a href="https://www.linkedin.com/company/yourbusiness" target="_blank" rel="noopener noreferrer">
-                            <FaLinkedin />
-                        </a>
-                        <a href="https://www.youtube.com/yourbusiness" target="_blank" rel="noopener noreferrer">
-                            <FaYoutube />
-                        </a>
-                    </div>
+
+                        {contactdetails.map((contact) => (
+                            <div className="about-us-social-links">
+                                <a href={contact.facebooklink} target="_blank" rel="noopener noreferrer"
+                                   className="social-link">
+                                    <FaFacebook/>
+                                </a>
+                                <a href={contact.youtubelink} target="_blank" rel="noopener noreferrer"
+                                   className="social-link">
+                                    <FaYoutube/>
+                                </a>
+                                <a href={contact.linkedinlink} target="_blank" rel="noopener noreferrer"
+                                   className="social-link">
+                                    <FaLinkedin/>
+                                </a>
+                            </div>
+                        ))}
                 </div>
 
                 {/* Right Side: Image */}

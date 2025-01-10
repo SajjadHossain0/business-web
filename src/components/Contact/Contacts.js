@@ -1,10 +1,25 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./Contacts.css";
-import { FaFacebook, FaLinkedin, FaYoutube } from "react-icons/fa";
+import {FaFacebook, FaLinkedin, FaYoutube} from "react-icons/fa";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import apiClient from "../API/apiClient";
 
 export default function Contacts() {
+    const [contactdetails, setContacts] = useState([]);
+
+    useEffect(() => {
+        fetchContacts();
+    }, []);
+
+    const fetchContacts = async () => {
+        try {
+            const response = await apiClient.get("/contact/get-contacts"); // Use apiClient here
+            setContacts(response.data);
+        } catch (error) {
+            console.error("Error fetching contacts:", error);
+        }
+    };
     return (
         <>
             <Header/>
@@ -44,23 +59,26 @@ export default function Contacts() {
                     </div>
 
                     {/* Contact Details Section */}
-                    <div className="contact-details-section">
-                        <h2 className="details-title">Contact Information</h2>
-                        <p className="details-item">
-                            <strong>Address:</strong> 456 Business Road, Dhaka, Bangladesh
-                        </p>
-                        <p className="details-item">
-                            <strong>Phone:</strong> <a href="tel:+880987654321" className="details-link">+880
-                            987-654-321</a>
-                        </p>
-                        <p className="details-item">
-                            <strong>Email:</strong> <a href="mailto:info@company.com"
-                                                       className="details-link">info@company.com</a>
-                        </p>
-                        <p className="details-item">
-                            <strong>Business Hours:</strong> Mon - Fri, 9:00 AM - 6:00 PM
-                        </p>
-                    </div>
+                    {contactdetails.map((contact) => (
+                        <div className="contact-details-section">
+                            <h2 className="details-title">Contact Information</h2>
+                            <p className="details-item">
+                                <strong>Address:</strong> {contact.address}
+                            </p>
+                            <p className="details-item">
+                                <strong>Phone:</strong> <a href={`tel:${contact.phone}`}
+                                                           className="details-link">{contact.phone}</a>
+                            </p>
+                            <p className="details-item">
+                                <strong>Email:</strong> <a href={`mailto:${contact.email}`}
+                                                           className="details-link">{contact.email}</a>
+                            </p>
+
+                            <p className="details-item">
+                                <strong>Business Hours:</strong> {contact.businesshour}
+                            </p>
+                        </div>
+                    ))}
                 </div>
 
                 {/* Map Section */}
@@ -77,19 +95,22 @@ export default function Contacts() {
                 {/* Social Media Section */}
                 <div className="social-media-section">
                     <h2 className="social-title">Follow Us</h2>
-                    <div className="social-icons">
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
-                           className="social-link">
-                            <FaFacebook/>
-                        </a>
-                        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="social-link">
-                            <FaYoutube/>
-                        </a>
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
-                           className="social-link">
-                            <FaLinkedin/>
-                        </a>
-                    </div>
+                    {contactdetails.map((contact) => (
+                        <div className="social-icons">
+                            <a href={contact.facebooklink} target="_blank" rel="noopener noreferrer"
+                               className="social-link">
+                                <FaFacebook/>
+                            </a>
+                            <a href={contact.youtubelink} target="_blank" rel="noopener noreferrer"
+                               className="social-link">
+                                <FaYoutube/>
+                            </a>
+                            <a href={contact.linkedinlink} target="_blank" rel="noopener noreferrer"
+                               className="social-link">
+                                <FaLinkedin/>
+                            </a>
+                        </div>
+                    ))}
                 </div>
             </div>
             <Footer/>
