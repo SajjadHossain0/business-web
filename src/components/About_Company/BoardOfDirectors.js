@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import ImageCard from "./ImageCard";
 import './BoardOfDirectors.css'
 import apiClient from "../API/apiClient";
+import CustomLoading from "../CustomLoading";
 
 
 export default function BoardOfDirectors() {
@@ -24,16 +25,23 @@ export default function BoardOfDirectors() {
         <div className="bod-image-grid-container">
             <h1 style={{color: "#34495e", fontSize: 36, fontWeight: 700}} className="bod-image-grid-title">Board Of Directors</h1>
             <div className="bod-image-grid">
-                {directors.slice(0, 4).map((director, index) => (
-                    <div key={index} className="bod-image-grid-item">
-                        <ImageCard
-                            imageUrl={`data:image/jpeg;base64,${director.image}`}
-                            title={director.name}
-                            position={director.position}
-                            text={director.bio}
-                        />
-                    </div>
-                ))}
+
+                {directors.length > 0 ? (
+                    directors.slice(0, 4).map((director, index) => (
+                        <div key={index} className="bod-image-grid-item">
+                            <ImageCard
+                                imageUrl={`data:image/jpeg;base64,${director.image}`}
+                                title={director.name}
+                                position={director.position}
+                                text={director.bio}
+                            />
+                        </div>
+                    ))
+                    ):(
+                        <CustomLoading />
+                )}
+
+
             </div>
         </div>
     )

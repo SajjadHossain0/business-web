@@ -4,6 +4,7 @@ import "./Blogs.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import apiClient from "../API/apiClient";
+import CustomLoading from "../CustomLoading";
 
 export default function Blogs() {
     const [blogs, setBlogs] = useState([]);
@@ -37,26 +38,30 @@ export default function Blogs() {
                 </header>
 
                 <div className="blogs-grid">
-                    {blogs.map((blog) => (
-                        <div className="blog-card" key={blog.id}>
-                            <img src={`data:image/jpeg;base64,${blog.image}`}
-                                 alt={blog.title} className="blog-image" />
-                            <div className="blog-content">
-                                <h3 className="blog-title">{blog.title}</h3>
-                                <p className="blog-excerpt">{blog.content.slice(0, 100)}...</p>
-                                <div className="blog-meta">
-                                    <span className="blog-date">{blog.date}</span> |{" "}
-                                    <span className="blog-author">{blog.authorName}</span>
+                    {blogs.length > 0 ? (
+                        blogs.map((blog) => (
+                            <div className="blog-card" key={blog.id}>
+                                <img src={`data:image/jpeg;base64,${blog.image}`}
+                                     alt={blog.title} className="blog-image" />
+                                <div className="blog-content">
+                                    <h3 className="blog-title">{blog.title}</h3>
+                                    <p className="blog-excerpt">{blog.content.slice(0, 100)}...</p>
+                                    <div className="blog-meta">
+                                        <span className="blog-date">{blog.date}</span> |{" "}
+                                        <span className="blog-author">{blog.authorName}</span>
+                                    </div>
+                                    <button
+                                        className="read-more"
+                                        onClick={() => handleReadMore(blog.id)}
+                                    >
+                                        Read More
+                                    </button>
                                 </div>
-                                <button
-                                    className="read-more"
-                                    onClick={() => handleReadMore(blog.id)}
-                                >
-                                    Read More
-                                </button>
                             </div>
-                        </div>
-                    ))}
+                        ))
+                    ):(
+                        <CustomLoading/>
+                    )}
                 </div>
             </div>
             <Footer />

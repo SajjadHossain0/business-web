@@ -3,6 +3,7 @@ import "./MajorClints.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import apiClient from "../API/apiClient";
+import CustomLoading from "../CustomLoading";
 
 export default function MajorClints() {
     const [clients, setClients] = useState([]);
@@ -53,7 +54,7 @@ export default function MajorClints() {
                         ))}
                     </div>
                     ) : (
-                        <p>No major clients found.</p>
+                        <CustomLoading/>
                     )}
                 </div>
 
@@ -74,7 +75,7 @@ export default function MajorClints() {
                         ))}
                     </div>
                     ) : (
-                        <p>No success stories found.</p>
+                        <CustomLoading/>
                     )}
                 </div>
 

@@ -4,6 +4,7 @@ import {FaFacebook, FaLinkedin, FaYoutube} from "react-icons/fa";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import apiClient from "../API/apiClient";
+import CustomLoading from "../CustomLoading";
 
 export default function Contacts() {
     const [contactdetails, setContacts] = useState([]);
@@ -59,26 +60,47 @@ export default function Contacts() {
                     </div>
 
                     {/* Contact Details Section */}
-                    {contactdetails.map((contact) => (
-                        <div className="contact-details-section">
-                            <h2 className="details-title">Contact Information</h2>
-                            <p className="details-item">
-                                <strong>Address:</strong> {contact.address}
-                            </p>
-                            <p className="details-item">
-                                <strong>Phone:</strong> <a href={`tel:${contact.phone}`}
-                                                           className="details-link">{contact.phone}</a>
-                            </p>
-                            <p className="details-item">
-                                <strong>Email:</strong> <a href={`mailto:${contact.email}`}
-                                                           className="details-link">{contact.email}</a>
-                            </p>
+                    {contactdetails.length > 0 ? (
+                        contactdetails.map((contact) => (
+                            <div className="contact-details-section">
+                                <h2 className="details-title">Contact Information</h2>
+                                <p className="details-item">
+                                    <strong>Address:</strong> {contact.address}
+                                </p>
+                                <p className="details-item">
+                                    <strong>Phone:</strong> <a href={`tel:${contact.phone}`}
+                                                               className="details-link">{contact.phone}</a>
+                                </p>
+                                <p className="details-item">
+                                    <strong>Email:</strong> <a href={`mailto:${contact.email}`}
+                                                               className="details-link">{contact.email}</a>
+                                </p>
 
-                            <p className="details-item">
-                                <strong>Business Hours:</strong> {contact.businesshour}
-                            </p>
-                        </div>
-                    ))}
+                                <p className="details-item">
+                                    <strong>Business Hours:</strong> {contact.businesshour}
+                                </p>
+                            </div>
+                        ))
+                    ):(
+                            <div className="contact-details-section">
+                                <h2 className="details-title">Contact Information</h2>
+                                <p className="details-item">
+                                    <strong>Address:</strong>
+                                </p>
+                                <p className="details-item">
+                                    <strong>Phone:</strong> <a href=""
+                                                               className="details-link"></a>
+                                </p>
+                                <p className="details-item">
+                                    <strong>Email:</strong> <a href=""
+                                                               className="details-link"></a>
+                                </p>
+
+                                <p className="details-item">
+                                    <strong>Business Hours:</strong>
+                                </p>
+                            </div>
+                    )}
                 </div>
 
                 {/* Map Section */}

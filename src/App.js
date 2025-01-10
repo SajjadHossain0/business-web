@@ -42,7 +42,6 @@ function App() {
                     <Route path="/contact-us" element={<Contacts/>}/>
                 </Routes>
 
-
                 <Routes>
                     <Route path="/admin-dashboard" element={<AdminDashboard/>}/>
                 </Routes>

@@ -40,7 +40,8 @@ export default function About() {
                         </p>
                     </div>
 
-                        {contactdetails.map((contact) => (
+                    {contactdetails.length > 0 ? (
+                        contactdetails.map((contact) => (
                             <div className="about-us-social-links">
                                 <a href={contact.facebooklink} target="_blank" rel="noopener noreferrer"
                                    className="social-link">
@@ -55,7 +56,23 @@ export default function About() {
                                     <FaLinkedin/>
                                 </a>
                             </div>
-                        ))}
+                        ))
+                        ) : (
+                        <div className="about-us-social-links">
+                            <a href="www.facebook.com" target="_blank" rel="noopener noreferrer"
+                               className="social-link">
+                                <FaFacebook/>
+                            </a>
+                            <a href="www.youtube.com" target="_blank" rel="noopener noreferrer"
+                               className="social-link">
+                                <FaYoutube/>
+                            </a>
+                            <a href="www.linkedin.com" target="_blank" rel="noopener noreferrer"
+                               className="social-link">
+                                <FaLinkedin/>
+                            </a>
+                        </div>
+                    )}
                 </div>
 
                 {/* Right Side: Image */}

@@ -24,26 +24,47 @@ export default function Footer() {
 
             <footer className="footer">
                 <hr></hr>
-                {contactdetails.map((contact) => (
-                    <div className="social-icons d-flex justify-content-center">
-                        <a href={contact.linkedinlink} rel="noreferrer" target="_blank"
-                           className="footer-icon mx-2">
-                            <FaLinkedin/>
-                        </a>
-                        <a href={contact.instagramlink} rel="noreferrer" target="_blank"
-                           className="footer-icon mx-2">
-                            <RiInstagramFill/>
-                        </a>
-                        <a href={contact.facebooklink} rel="noreferrer" target="_blank"
-                           className="footer-icon mx-2">
-                            <FaFacebook/>
-                        </a>
-                        <a href={contact.youtubelink} rel="noreferrer" target="_blank"
-                           className="footer-icon mx-2">
-                            <FaYoutube/>
-                        </a>
-                    </div>
-                ))}
+                {contactdetails.length > 0 ? (
+                    contactdetails.map((contact) =>  (
+                        <div className="social-icons d-flex justify-content-center">
+                            <a href={contact.linkedinlink} rel="noreferrer" target="_blank"
+                               className="footer-icon mx-2">
+                                <FaLinkedin/>
+                            </a>
+                            <a href={contact.instagramlink} rel="noreferrer" target="_blank"
+                               className="footer-icon mx-2">
+                                <RiInstagramFill/>
+                            </a>
+                            <a href={contact.facebooklink} rel="noreferrer" target="_blank"
+                               className="footer-icon mx-2">
+                                <FaFacebook/>
+                            </a>
+                            <a href={contact.youtubelink} rel="noreferrer" target="_blank"
+                               className="footer-icon mx-2">
+                                <FaYoutube/>
+                            </a>
+                        </div>
+                    ))
+                ):(
+                        <div className="social-icons d-flex justify-content-center">
+                            <a href="#" rel="noreferrer" target="_blank"
+                               className="footer-icon mx-2">
+                                <FaLinkedin/>
+                            </a>
+                            <a href="#" rel="noreferrer" target="_blank"
+                               className="footer-icon mx-2">
+                                <RiInstagramFill/>
+                            </a>
+                            <a href="#" rel="noreferrer" target="_blank"
+                               className="footer-icon mx-2">
+                                <FaFacebook/>
+                            </a>
+                            <a href="#" rel="noreferrer" target="_blank"
+                               className="footer-icon mx-2">
+                                <FaYoutube/>
+                            </a>
+                        </div>
+                )}
                 <hr></hr>
                 <p>&copy; {new Date().getFullYear()} Sajjad Hossain. All rights reserved.</p>
             </footer>

@@ -3,6 +3,7 @@ import './Gallery.css'
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import apiClient from "../API/apiClient";
+import CustomLoading from "../CustomLoading";
 
 export default function Gallery() {
     const [galleryItems, setGalleryItems] = useState([]);
@@ -29,12 +30,16 @@ export default function Gallery() {
                 </h1>
 
                 <div className="photo-gallery">
-                    {galleryItems.map((item, index) => (
-                        <div key={index} className="photo">
-                            <img src={`data:image/jpeg;base64,${item.image}`}
-                                 alt={item.title}/>
-                        </div>
-                    ))}
+                    {galleryItems.length > 0 ? (
+                        galleryItems.map((item, index) => (
+                            <div key={index} className="photo">
+                                <img src={`data:image/jpeg;base64,${item.image}`}
+                                     alt={item.title}/>
+                            </div>
+                        ))
+                    ):(
+                        <CustomLoading/>
+                    )}
                 </div>
             </div>
             <Footer/>

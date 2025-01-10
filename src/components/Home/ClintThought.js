@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './ClintThought.css'
 import apiClient from "../API/apiClient";
+import CustomLoading from "../CustomLoading";
 
 
 export default function ClintThought() {
@@ -47,7 +48,7 @@ export default function ClintThought() {
                                     </div>
                                 ))
                             ) : (
-                                <p>No testimonials available.</p>
+                               <CustomLoading/>
                             )}
                         </div>
                     </div>

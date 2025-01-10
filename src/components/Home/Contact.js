@@ -26,39 +26,73 @@ function Contact() {
                 <div className="contactContainer">
                     <div className="contactContent">
                         {/* Left Side: Contact Info */}
-                        {contactdetails.map((contact) => (
-                        <div className="contactInfo">
-                            <h1 className="contactTitle">Contact Information</h1>
-                            <p className="contactDescription">Feel free to reach out to us using the contact details or the form below.</p>
-                            <div className="contactInfoCard">
-                                <div className="contactInfoIcon">
-                                    <FaLocationDot />
+                        {contactdetails.length > 0 ? (
+                            contactdetails.map((contact) => (
+                                <div className="contactInfo">
+                                    <h1 className="contactTitle">Contact Information</h1>
+                                    <p className="contactDescription">Feel free to reach out to us using the contact details or the form below.</p>
+                                    <div className="contactInfoCard">
+                                        <div className="contactInfoIcon">
+                                            <FaLocationDot />
+                                        </div>
+                                        <div className="contactInfoDetails">
+                                            <h3 className="contactInfoTitle">Address</h3>
+                                            <p className="contactInfoText"><strong>{contact.address}</strong></p>
+                                        </div>
+                                    </div>
+                                    <div className="contactInfoCard">
+                                        <div className="contactInfoIcon">
+                                            <FaPhoneAlt />
+                                        </div>
+                                        <div className="contactInfoDetails">
+                                            <h3 className="contactInfoTitle">Phone</h3>
+                                            <p className="contactInfoText"><strong>{contact.phone}</strong></p>
+                                        </div>
+                                    </div>
+                                    <div className="contactInfoCard">
+                                        <div className="contactInfoIcon">
+                                            <MdAlternateEmail />
+                                        </div>
+                                        <div className="contactInfoDetails">
+                                            <h3 className="contactInfoTitle">Email</h3>
+                                            <p className="contactInfoText"><strong>{contact.email}</strong></p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="contactInfoDetails">
-                                    <h3 className="contactInfoTitle">Address</h3>
-                                    <p className="contactInfoText"><strong>{contact.address}</strong></p>
+                            ))
+                        ):(
+                                <div className="contactInfo">
+                                    <h1 className="contactTitle">Contact Information</h1>
+                                    <p className="contactDescription">Feel free to reach out to us using the contact details or the form below.</p>
+                                    <div className="contactInfoCard">
+                                        <div className="contactInfoIcon">
+                                            <FaLocationDot />
+                                        </div>
+                                        <div className="contactInfoDetails">
+                                            <h3 className="contactInfoTitle">Address</h3>
+                                            <p className="contactInfoText"><strong></strong></p>
+                                        </div>
+                                    </div>
+                                    <div className="contactInfoCard">
+                                        <div className="contactInfoIcon">
+                                            <FaPhoneAlt />
+                                        </div>
+                                        <div className="contactInfoDetails">
+                                            <h3 className="contactInfoTitle">Phone</h3>
+                                            <p className="contactInfoText"><strong></strong></p>
+                                        </div>
+                                    </div>
+                                    <div className="contactInfoCard">
+                                        <div className="contactInfoIcon">
+                                            <MdAlternateEmail />
+                                        </div>
+                                        <div className="contactInfoDetails">
+                                            <h3 className="contactInfoTitle">Email</h3>
+                                            <p className="contactInfoText"><strong></strong></p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="contactInfoCard">
-                                <div className="contactInfoIcon">
-                                    <FaPhoneAlt />
-                                </div>
-                                <div className="contactInfoDetails">
-                                    <h3 className="contactInfoTitle">Phone</h3>
-                                    <p className="contactInfoText"><strong>{contact.phone}</strong></p>
-                                </div>
-                            </div>
-                            <div className="contactInfoCard">
-                                <div className="contactInfoIcon">
-                                    <MdAlternateEmail />
-                                </div>
-                                <div className="contactInfoDetails">
-                                    <h3 className="contactInfoTitle">Email</h3>
-                                    <p className="contactInfoText"><strong>{contact.email}</strong></p>
-                                </div>
-                            </div>
-                        </div>
-                        ))}
+                        )}
 
                         {/* Right Side: Contact Form */}
                         <div className="contactForm">
