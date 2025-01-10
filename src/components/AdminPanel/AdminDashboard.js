@@ -8,6 +8,7 @@ import GalleryPanel from "./GalleryPanel";
 import MajorClientsPanel from "./MajorClientsPanel";
 import BlogsPanel from "./BlogsPanel";
 import ContactsPanel from "./ContactsPanel";
+import AdvertisementPanel from "./AdvertisementPanel";
 
 export default function AdminDashboard() {
     const [activeContent, setActiveContent] = useState("HomePanel");
@@ -15,18 +16,20 @@ export default function AdminDashboard() {
 
     const renderContent = () => {
         switch (activeContent) {
+            case "Advertisement":
+                return <AdvertisementPanel/>;
             case "CompanyDetails":
-                return <CompanyDetails />;
+                return <CompanyDetails/>;
             case "ClientThoughts":
-                return <ClientThoughtsPanel />;
+                return <ClientThoughtsPanel/>;
             case "Gallery":
-                return <GalleryPanel />;
+                return <GalleryPanel/>;
             case "MajorClients":
-                return <MajorClientsPanel />;
+                return <MajorClientsPanel/>;
             case "Blogs":
-                return <BlogsPanel />;
+                return <BlogsPanel/>;
             case "Contacts":
-                return <ContactsPanel />;
+                return <ContactsPanel/>;
             default:
                 return <h1>Welcome to the Admin Dashboard</h1>;
         }
@@ -34,9 +37,9 @@ export default function AdminDashboard() {
 
     return (
         <div className="admin-dashboard">
-            <AdminHeader />
+            <AdminHeader/>
             <div className="admin-body">
-                <AdminSidebar setActiveContent={setActiveContent} />
+                <AdminSidebar setActiveContent={setActiveContent}/>
                 <div className="admin-content">{renderContent()}</div>
             </div>
         </div>

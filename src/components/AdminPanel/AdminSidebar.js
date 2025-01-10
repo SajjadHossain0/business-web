@@ -5,6 +5,7 @@ export default function AdminSidebar({ setActiveContent }) {
     return (
         <aside className="admin-sidebar">
             <ul>
+                <li onClick={() => setActiveContent("Advertisement")}>Manage Advertisement</li>
                 <li onClick={() => setActiveContent("CompanyDetails")}>Manage Company Details</li>
                 <li onClick={() => setActiveContent("ClientThoughts")}>Manage Client Thoughts</li>
                 <li onClick={() => setActiveContent("Gallery")}>Manage Gallery</li>
