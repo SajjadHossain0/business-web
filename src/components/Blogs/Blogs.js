@@ -28,6 +28,20 @@ export default function Blogs() {
         navigate(`/blogs/${id}`);
     };
 
+    const handleShare = (blog) => {
+        if (navigator.share) {
+            navigator.share({
+                title: blog.title,
+                text: blog.content.slice(0, 100), // Share the first 100 characters
+                url: `${window.location.origin}/blogs/${blog.id}`, // Share blog URL
+            })
+                .then(() => console.log("Blog shared successfully!"))
+                .catch((error) => console.error("Error sharing blog:", error));
+        } else {
+            alert("Web Share API is not supported in this browser.");
+        }
+    };
+
     return (
         <>
             <Header />
@@ -42,7 +56,14 @@ export default function Blogs() {
                         blogs.map((blog) => (
                             <div className="blog-card" key={blog.id}>
                                 <img src={`data:image/jpeg;base64,${blog.image}`}
-                                     alt={blog.title} className="blog-image" />
+                                     alt={blog.title} className="blog-image"/>
+                                <button
+                                    className="share-icon"
+                                    onClick={() => handleShare(blog)}
+                                    title="Share this blog"
+                                >
+                                    🔗
+                                </button>
                                 <div className="blog-content">
                                     <h3 className="blog-title">{blog.title}</h3>
                                     <p className="blog-excerpt">{blog.content.slice(0, 100)}...</p>
@@ -59,12 +80,12 @@ export default function Blogs() {
                                 </div>
                             </div>
                         ))
-                    ):(
+                    ) : (
                         <CustomLoading/>
                     )}
                 </div>
             </div>
-            <Footer />
+            <Footer/>
         </>
     );
 }

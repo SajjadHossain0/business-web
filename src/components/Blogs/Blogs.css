@@ -83,3 +83,34 @@
     background-color: #2980b9;
 }
 
+.blog-image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.share-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    padding: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.share-icon:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+.blog-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+

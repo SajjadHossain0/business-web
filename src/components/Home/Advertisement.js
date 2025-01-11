@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Advertisement.css';
+import CustomLoading from "../CustomLoading";
 
 const Advertisement = ({ images, interval = 3000 }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -21,11 +22,18 @@ const Advertisement = ({ images, interval = 3000 }) => {
     return (
         <div className="carousel">
             <div className="carousel-slides" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-                {images.map((image, index) => (
-                    <div key={index} className="carousel-slide">
-                        <img src={image} alt={`Slide ${index + 1}`} />
+                {images.length > 0 ? (
+                    images.map((image, index) => (
+                        <div key={index} className="carousel-slide">
+                            <img src={image} alt={`Slide ${index + 1}`} />
+                        </div>
+                    ))
+                ):(
+                    <div align="center">
+                        <CustomLoading/>
                     </div>
-                ))}
+
+                )}
             </div>
 
             {/* Navigation Dots */}
