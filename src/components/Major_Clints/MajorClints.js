@@ -85,12 +85,13 @@ export default function MajorClints() {
                     <p className="major-clints-map-description">
                         Explore the locations where we've made an impact.
                     </p>
-                    <div className="major-clints-map-placeholder">
-                        {/* Replace with an actual interactive map if needed */}
-                        <img
-                            src="https://via.placeholder.com/600x300"
-                            alt="Interactive World Map"
-                        />
+                    <div className="contact-map-section">
+                        <iframe
+                            title="Google Map"
+                            className="contact-map"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.902736651487!2d90.41251821498183!3d23.750920894601154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8d9c2d3a3b5%3A0x8dc56f7a38bc6859!2sDhaka%2C%20Bangladesh!5e0!3m2!1sen!2sbd!4v1694703915843!5m2!1sen!2sbd"
+                            allowFullScreen
+                        ></iframe>
                     </div>
                 </div>
 
