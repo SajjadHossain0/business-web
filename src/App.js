@@ -34,11 +34,12 @@ function App() {
                 <Routes>
                     <Route path="/major-clints" element={<MajorClints/>}/>
                 </Routes>
+
                 <Routes>
                     <Route path="/blogs" element={<Blogs/>}/>
                     <Route path="/blogs/:id" element={<BlogDetail />} />
-
                 </Routes>
+
                 <Routes>
                     <Route path="/contact-us" element={<Contacts/>}/>
                 </Routes>

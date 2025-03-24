@@ -9,6 +9,7 @@ export default function MajorClints() {
     const [clients, setClients] = useState([]);
     const [successStories, setSuccessStories] = useState([]);
 
+
     useEffect(() => {
         fetchClients();
         fetchSuccessStories();
@@ -16,8 +17,26 @@ export default function MajorClints() {
 
     const fetchClients = async () => {
         try {
-            const response = await apiClient.get("/major-client/get-all");
-            setClients(response.data);
+            // Simulated demo data in case the backend is not available
+            const demoClients = [
+                {
+                    name: "Tech Corp",
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxvddSa5Dj_PJVGaPsmFHUftoQSdUYJmUqkg&s",
+                    industryName: "Technology",
+                },
+                {
+                    name: "Green Energy Solutions",
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShNtRpGFcRNfmS2QiwvHxS0zTc_Tb6e1bioQ&s",
+                    industryName: "Energy",
+                },
+                {
+                    name: "FinancePro",
+                    image: "https://c4.wallpaperflare.com/wallpaper/703/645/236/light-radiance-lines-waves-wallpaper-preview.jpg",
+                    industryName: "Finance",
+                },
+            ];
+
+            setClients(demoClients);
         } catch (error) {
             console.error("Error fetching clients:", error);
         }
@@ -25,12 +44,51 @@ export default function MajorClints() {
 
     const fetchSuccessStories = async () => {
         try {
-            const response = await apiClient.get("/success-story/get-all");
-            setSuccessStories(response.data);
+            // Simulated demo data in case the backend is not available
+            const demoStories = [
+                {
+                    successName: "John Doe - CEO of Tech Corp",
+                    successText: "We partnered with this company and saw a 40% increase in revenue.",
+                    successQuote: "Their team provided excellent solutions that transformed our business!",
+                },
+                {
+                    successName: "Sarah Lee - CFO of FinancePro",
+                    successText: "With their innovative platform, our business operations became 2x more efficient.",
+                    successQuote: "A game-changer for our industry!",
+                },
+            ];
+
+            // Uncomment the API call when the backend is ready
+            // const response = await apiClient.get("/success-story/get-all");
+            // setSuccessStories(response.data);
+
+            setSuccessStories(demoStories);
         } catch (error) {
             console.error("Error fetching success stories:", error);
         }
     };
+
+
+    /*    useEffect(() => {
+            fetchClients();
+            fetchSuccessStories();
+        }, []);
+        const fetchClients = async () => {
+            try {
+                const response = await apiClient.get("/major-client/get-all");
+                setClients(response.data);
+            } catch (error) {
+                console.error("Error fetching clients:", error);
+            }
+        };
+        const fetchSuccessStories = async () => {
+            try {
+                const response = await apiClient.get("/success-story/get-all");
+                setSuccessStories(response.data);
+            } catch (error) {
+                console.error("Error fetching success stories:", error);
+            }
+        };*/
 
     return (
         <>
@@ -46,8 +104,11 @@ export default function MajorClints() {
                     <div className="major-clints-logos-grid">
                         {clients.map((client) => (
                         <div className="major-clints-logo-card">
-                            <img src={`data:image/jpeg;base64,${client.image}`}
+                            {/*<img src={`data:image/jpeg;base64,${client.image}`}
+                                 alt={client.name}/>*/}
+                            <img src={client.image}
                                  alt={client.name}/>
+
                             <p className="major-clints-logo-name">{client.name}</p>
                             <span className="major-clints-logo-industry">Industry: {client.industryName}</span>
                         </div>

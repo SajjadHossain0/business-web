@@ -10,7 +10,56 @@ export default function Blogs() {
     const [blogs, setBlogs] = useState([]);
     const navigate = useNavigate();
 
-    // Fetch blogs from the API
+    useEffect(() => {
+        // Using demo data instead of API call
+        const demoBlogs =
+            [
+                {
+                    "id": 1,
+                    "title": "Top 5 Tech Trends in 2025",
+                    "content": "Discover the latest trends shaping the technology landscape in 2025...",
+                    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBGdZ-SaYlNNM319tb4mubAy35QnDllyCd9kqQ7Q57cbS1nqRtb_Mf4mfAvSVxd_6bCwo&usqp=CAU",
+                    "date": "March 20, 2025",
+                    "authorName": "John Tech"
+                },
+                {
+                    "id": 2,
+                    "title": "How AI is Revolutionizing Business",
+                    "content": "Artificial intelligence is changing the way businesses operate...",
+                    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd8DeNX0xNW_XneA9SlpwNO_q6DY62IrEW1pl9dafI-Ahh2Bi6CuVcX0xn-pYmBd-UnXs&usqp=CAU",
+                    "date": "March 18, 2025",
+                    "authorName": "Sarah AI"
+                },
+                {
+                    "id": 3,
+                    "title": "Cybersecurity Best Practices for 2025",
+                    "content": "Learn how to protect your business from cyber threats...",
+                    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiNfkuHrzhiewip8cr03koPfcoojkyt7w5vjGWJDcHEbDdR8tcEJRiRdg83cD2ET3QiBY&usqp=CAU",
+                    "date": "March 15, 2025",
+                    "authorName": "Michael Secure"
+                },
+                {
+                    "id": 4,
+                    "title": "The Future of Remote Work",
+                    "content": "Remote work is here to stay. Here's how companies are adapting...",
+                    "image": "https://img.freepik.com/free-vector/color-flow-background_23-2148619605.jpg",
+                    "date": "March 10, 2025",
+                    "authorName": "Emma Remote"
+                },
+                {
+                    "id": 5,
+                    "title": "Sustainable Business Practices in 2025",
+                    "content": "Going green isn't just a trend—it's the future of business...",
+                    "image": "https://img.freepik.com/free-vector/abstract-colorful-flow-shapes-background_23-2148233991.jpg",
+                    "date": "March 5, 2025",
+                    "authorName": "David Green"
+                }
+            ]
+        setBlogs(demoBlogs);
+    }, []);
+
+
+/*
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
@@ -22,6 +71,7 @@ export default function Blogs() {
         };
         fetchBlogs();
     }, []);
+*/
 
     // Navigate to the detailed blog view
     const handleReadMore = (id) => {
@@ -55,8 +105,11 @@ export default function Blogs() {
                     {blogs.length > 0 ? (
                         blogs.map((blog) => (
                             <div className="blog-card" key={blog.id}>
-                                <img src={`data:image/jpeg;base64,${blog.image}`}
+                                {/*<img src={`data:image/jpeg;base64,${blog.image}`}
+                                     alt={blog.title} className="blog-image"/>*/}
+                                <img src={blog.image}
                                      alt={blog.title} className="blog-image"/>
+
                                 <button
                                     className="share-icon"
                                     onClick={() => handleShare(blog)}

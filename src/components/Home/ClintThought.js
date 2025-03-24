@@ -10,8 +10,32 @@ export default function ClintThought() {
     useEffect(() => {
         const fetchTestimonials = async () => {
             try {
-                const response = await apiClient.get('/testimonials/get-all');
-                setTestimonials(response.data);
+                // Simulate an API response when backend is not running
+                const demoTestimonials = [
+                    {
+                        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAUj2aXn4XZLV703G5UhvYrrnxgCA5L7QHlw&s", // Replace with a real image URL
+                        name: "John Doe",
+                        thought: "Great experience! The service was fantastic and exceeded my expectations."
+                    },
+                    {
+                        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAUj2aXn4XZLV703G5UhvYrrnxgCA5L7QHlw&s", // Replace with a real image URL
+                        name: "Jane Smith",
+                        thought: "Highly recommend! The team is professional and the product is top-notch."
+                    },
+                    {
+                        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAUj2aXn4XZLV703G5UhvYrrnxgCA5L7QHlw&s", // Replace with a real image URL
+                        name: "Alice Brown",
+                        thought: "Amazing quality and customer support. Will definitely come back!"
+                    },
+                    {
+                        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAUj2aXn4XZLV703G5UhvYrrnxgCA5L7QHlw&s", // Replace with a real image URL
+                        name: "Bob Johnson",
+                        thought: "A wonderful experience overall. Very happy with the results."
+                    },
+                ];
+
+
+                setTestimonials(demoTestimonials);
             } catch (error) {
                 console.error('Error fetching testimonials:', error);
             }
@@ -19,6 +43,21 @@ export default function ClintThought() {
 
         fetchTestimonials();
     }, []);
+
+/*
+    useEffect(() => {
+        const fetchTestimonials = async () => {
+            try {
+                const response = await apiClient.get('/testimonials/get-all');
+                setTestimonials(response.data);
+            } catch (error) {
+                console.error('Error fetching testimonials:', error);
+            }
+        };
+        fetchTestimonials();
+    }, []);
+*/
+
     return (
         <div>
             <div className="responsiveCardsImg">
@@ -32,7 +71,8 @@ export default function ClintThought() {
                                         <div style={{margin: 10}}>
                                             {/* Display the image using Base64 or URL */}
                                             <img
-                                                src={`data:image/jpeg;base64,${testimonial.image}`} // Assuming image is stored as Base64
+                                                //src={`data:image/jpeg;base64,${testimonial.image}`} // Assuming image is stored as Base64
+                                                src={testimonial.image} // Assuming image is stored as Base64
                                                 height="100"
                                                 width="100"
                                                 style={{
